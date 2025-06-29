@@ -1,6 +1,6 @@
 import jsonServerInstance from "../api/jsonInstance";
 
-export const loginAPI = async (username: string) => {
+export const checkLogin = async (username: string) => {
   try {
     const response = await jsonServerInstance.get(
       `/users?username=${username}`

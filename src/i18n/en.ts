@@ -23,4 +23,11 @@ export const enJSON = {
     roleAdmin: "Admin",
     hasAccount: "Already have an account? Sign In",
   },
+  sidebar: {
+    home: "Home",
+    logout: "Logout",
+  },
+  auction: {
+    createError: "Error creating auction",
+  },
 };

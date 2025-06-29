@@ -1,4 +1,4 @@
-export const SnackbarSeverity = {
+export const severities = {
   SUCCESS: "success",
   ERROR: "error",
   WARNING: "warning",

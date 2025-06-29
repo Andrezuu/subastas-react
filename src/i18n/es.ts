@@ -24,4 +24,8 @@ export const esJSON = {
     hasAccount: "¿Ya tienes una cuenta? Inicia sesión",
     avatar: "Avatar (URL)",
   },
+  sidebar: {
+    home: "Inicio",
+    logout: "Cerrar Sesión",
+  },
 };

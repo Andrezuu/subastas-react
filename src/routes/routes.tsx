@@ -6,6 +6,7 @@ import ProtectedRoutes from "../components/guards/ProtectedRoute";
 import { Layout } from "../layout/Layout";
 import ErrorComponent from "../components/ErrorComponent";
 import { useTranslation } from "react-i18next";
+import Home from "../pages/Home";
 
 export const AppRoutes = () => {
   const { t } = useTranslation();
@@ -23,7 +24,7 @@ export const AppRoutes = () => {
               </ProtectedRoutes>
             }
           >
-            <Route path="" />
+            <Route path="" element={<Home />} />
           </Route>
         </Routes>
       </ErrorBoundary>

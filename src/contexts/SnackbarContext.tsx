@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 import { Alert, Snackbar, type AlertColor } from "@mui/material";
-import { SnackbarSeverity } from "../constants/SnackbarSeverity";
+import { severities } from "../constants/severities";
 
 interface ISnackbarContext {
   showMessage: (message: string, severity?: string) => void;
@@ -11,12 +11,12 @@ export const useSnackbar = () => useContext(SnackbarContext);
 
 export const SnackbarProvider = ({ children }: { children: ReactNode }) => {
   const [message, setMessage] = useState("");
-  const [severity, setSeverity] = useState(SnackbarSeverity.INFO);
+  const [severity, setSeverity] = useState(severities.INFO);
   const [open, setOpen] = useState(false);
 
   const showMessage = (message: string, severity?: string) => {
     setMessage(message);
-    setSeverity(severity || SnackbarSeverity.INFO);
+    setSeverity(severity || severities.INFO);
     setOpen(true);
   };
 

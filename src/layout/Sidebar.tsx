@@ -8,10 +8,11 @@ import {
   Toolbar,
   Divider,
 } from "@mui/material";
-import { Home, Info } from "@mui/icons-material";
 import { Link, useLocation } from "react-router-dom";
-import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import { useAuth } from "../contexts/AuthContext";
+import { useTranslation } from "react-i18next";
+import { getMenu } from "../constants/menu";
+import { useMemo } from "react";
 
 const drawerWidth = 240;
 
@@ -28,39 +29,32 @@ const Sidebar = ({
 }: SidebarProps) => {
   const location = useLocation();
   const { logout } = useAuth();
-  const drawer = (
-    <div>
-      <Toolbar />
-      <Divider />
-      <List>
-        <ListItem disablePadding>
-          <ListItemButton
-            component={Link}
-            to="/"
-            selected={location.pathname === "/"}
-          >
-            <ListItemIcon>
-              <BusinessCenterIcon />
-            </ListItemIcon>
-            <ListItemText primary="Proyectos" />
-          </ListItemButton>
-        </ListItem>
-
-        <ListItem disablePadding>
-          <ListItemButton
-            component={Link}
-            to="/Login"
-            selected={location.pathname === "/login"}
-            onClick={logout}
-          >
-            <ListItemIcon>
-              <Info />
-            </ListItemIcon>
-            <ListItemText primary="Cerrar Sesion" />
-          </ListItemButton>
-        </ListItem>
-      </List>
-    </div>
+  const { t } = useTranslation();
+  const menu = useMemo(() => getMenu(t, logout), []);
+  const drawer = useMemo(
+    () => (
+      <>
+        <Toolbar />
+        <Divider />
+        <List>
+          {menu.map((item) => (
+            <ListItem disablePadding>
+              <ListItemButton
+                key={item.title}
+                component={Link}
+                to={item.path}
+                onClick={item.onClick}
+                selected={location.pathname === item.path}
+              >
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.title} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </>
+    ),
+    []
   );
 
   return (

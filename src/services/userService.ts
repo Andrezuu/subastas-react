@@ -1,7 +1,7 @@
 import jsonServerInstance from "../api/jsonInstance";
 import type { IUser } from "../interfaces/IUser";
 
-export const createUserAPI = async (user: IUser) => {
+export const createUser= async (user: IUser) => {
   try {
     const response = await jsonServerInstance.post("/users", user);
     return response.data;

@@ -6,56 +6,14 @@ import {
   Paper,
   Avatar,
 } from "@mui/material";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { useSnackbar } from "../../contexts/SnackbarContext";
-import { SnackbarSeverity } from "../../constants/SnackbarSeverity";
 import { useTranslation } from "react-i18next";
-import { loginAPI } from "../../services/authService";
-
-const loginSchema = Yup.object({
-  username: Yup.string()
-    .min(3, "El nombre de usuario debe tener al menos 3 caracteres")
-    .max(30, "El nombre de usuario no puede exceder los 30 caracteres")
-    .required("El nombre de usuario es requerido"),
-});
-
-interface LoginFormValues {
-  username: string;
-}
+import { useLogin } from "../../hooks/useLogin";
 
 function Login() {
-  const { login } = useAuth();
   const navigate = useNavigate();
-  const { showMessage } = useSnackbar();
   const { t } = useTranslation();
-
-  const formik = useFormik({
-    initialValues: { username: "" },
-    validationSchema: loginSchema,
-    onSubmit: async (values: LoginFormValues) => {
-      await handleSubmit(values);
-    },
-  });
-
-  const handleSubmit = async (values: LoginFormValues) => {
-    try {
-      const res = await loginAPI(values.username);
-      if (!res) {
-        showMessage(t("auth.notFound"), SnackbarSeverity.ERROR);
-        return;
-      }
-      login(res);
-
-      showMessage(t("auth.success"), SnackbarSeverity.SUCCESS);
-      navigate("/app", { replace: true });
-    } catch (error) {
-      showMessage(t("auth.errorGeneric"), SnackbarSeverity.ERROR);
-    }
-    formik.resetForm();
-  };
+  const { formik } = useLogin();
 
   return (
     <Box

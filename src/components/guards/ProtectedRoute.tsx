@@ -3,7 +3,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { useEffect, useRef, type ReactNode } from "react";
 import { useSnackbar } from "../../contexts/SnackbarContext";
 import { useTranslation } from "react-i18next";
-import { SnackbarSeverity } from "../../constants/SnackbarSeverity";
+import { severities } from "../../constants/severities";
 
 const ProtectedRoutes = ({ children }: { children: ReactNode }) => {
   const { isAuth } = useAuth();
@@ -14,7 +14,7 @@ const ProtectedRoutes = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     if (!isAuth && !logoutMessage.current) {
-      showMessage(t("snackbar.noSession"), SnackbarSeverity.WARNING);
+      showMessage(t("snackbar.noSession"), severities.WARNING);
       logoutMessage.current = true;
     }
   }, [isAuth]);
