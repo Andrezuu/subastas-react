@@ -14,5 +14,13 @@ export const enJSON = {
     title: "Login",
     noAccount: "Don't have an account? Register",
     username: "Username",
+    registerTitle: "Register",
+    registerButton: "Register",
+    registerError: "Error registering",
+    registerSuccess: "Registration successful",
+    role: "Role",
+    roleUser: "User",
+    roleAdmin: "Admin",
+    hasAccount: "Already have an account? Sign In",
   },
 };

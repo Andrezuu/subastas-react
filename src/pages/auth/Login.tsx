@@ -6,7 +6,7 @@ import {
   Paper,
   Avatar,
 } from "@mui/material";
-import { Formik, Form } from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -15,9 +15,10 @@ import { SnackbarSeverity } from "../../constants/SnackbarSeverity";
 import { useTranslation } from "react-i18next";
 import { loginAPI } from "../../services/authService";
 
-const validationSchema = Yup.object({
+const loginSchema = Yup.object({
   username: Yup.string()
     .min(3, "El nombre de usuario debe tener al menos 3 caracteres")
+    .max(30, "El nombre de usuario no puede exceder los 30 caracteres")
     .required("El nombre de usuario es requerido"),
 });
 
@@ -31,6 +32,14 @@ function Login() {
   const { showMessage } = useSnackbar();
   const { t } = useTranslation();
 
+  const formik = useFormik({
+    initialValues: { username: "" },
+    validationSchema: loginSchema,
+    onSubmit: async (values: LoginFormValues) => {
+      await handleSubmit(values);
+    },
+  });
+
   const handleSubmit = async (values: LoginFormValues) => {
     try {
       const res = await loginAPI(values.username);
@@ -41,10 +50,11 @@ function Login() {
       login(res);
 
       showMessage(t("auth.success"), SnackbarSeverity.SUCCESS);
-      navigate("/app");
+      navigate("/app", { replace: true });
     } catch (error) {
       showMessage(t("auth.errorGeneric"), SnackbarSeverity.ERROR);
     }
+    formik.resetForm();
   };
 
   return (
@@ -53,7 +63,6 @@ function Login() {
       justifyContent="center"
       alignItems="center"
       minHeight="100vh"
-      bgcolor="grey.100"
     >
       <Paper elevation={3} sx={{ p: 4, maxWidth: 400, width: "100%" }}>
         <Box textAlign="center" mb={3}>
@@ -63,52 +72,36 @@ function Login() {
           </Typography>
         </Box>
 
-        <Formik
-          initialValues={{ username: "" }}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
-            isSubmitting,
-          }) => (
-            <Form>
-              <TextField
-                fullWidth
-                name="username"
-                label={t("auth.username")}
-                value={values.username}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                error={touched.username && Boolean(errors.username)}
-                helperText={touched.username && errors.username}
-                margin="normal"
-              />
+        <form onSubmit={formik.handleSubmit}>
+          <TextField
+            fullWidth
+            name="username"
+            label={t("auth.username")}
+            value={formik.values.username}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={formik.touched.username && Boolean(formik.errors.username)}
+            helperText={formik.touched.username && formik.errors.username}
+          />
 
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                disabled={isSubmitting}
-                sx={{ mt: 3, mb: 2 }}
-              >
-                {t("auth.loginButton")}
-              </Button>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            disabled={formik.isSubmitting}
+            sx={{ mt: 3, mb: 2 }}
+          >
+            {t("auth.loginButton")}
+          </Button>
 
-              <Button
-                fullWidth
-                variant="text"
-                onClick={() => navigate("/register")}
-              >
-                {t("auth.noAccount")}
-              </Button>
-            </Form>
-          )}
-        </Formik>
+          <Button
+            fullWidth
+            variant="text"
+            onClick={() => navigate("/register")}
+          >
+            {t("auth.noAccount")}
+          </Button>
+        </form>
       </Paper>
     </Box>
   );

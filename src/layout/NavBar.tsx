@@ -1,10 +1,14 @@
-import { AppBar, Toolbar, IconButton } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Avatar, Box, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { useAuth } from "../contexts/AuthContext";
+
 interface NavbarProps {
   onMenuClick: () => void;
 }
 
 const Navbar = ({ onMenuClick }: NavbarProps) => {
+  const { user } = useAuth();
+
   return (
     <AppBar
       position="fixed"
@@ -20,6 +24,21 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
         >
           <MenuIcon />
         </IconButton>
+        
+        <Box sx={{ flexGrow: 1 }} />
+        
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <Typography variant="body1" color="inherit">
+            {user?.username}
+          </Typography>
+          <Avatar
+            src={user?.avatar}
+            // alt={user?.username}
+            sx={{ width: 32, height: 32 }}
+          >
+            {/* {user?.username?.[0]?.toUpperCase()} */}
+          </Avatar>
+        </Box>
       </Toolbar>
     </AppBar>
   );

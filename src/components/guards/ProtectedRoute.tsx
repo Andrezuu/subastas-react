@@ -9,10 +9,11 @@ const ProtectedRoutes = ({ children }: { children: ReactNode }) => {
   const { isAuth } = useAuth();
   const { showMessage } = useSnackbar();
   const { t } = useTranslation();
+  // TODO: DONT SHOW MESSAGE ON LOGOUT
   const logoutMessage = useRef(false);
 
   useEffect(() => {
-    if (!isAuth && logoutMessage.current) {
+    if (!isAuth && !logoutMessage.current) {
       showMessage(t("snackbar.noSession"), SnackbarSeverity.WARNING);
       logoutMessage.current = true;
     }
