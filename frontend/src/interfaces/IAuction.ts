@@ -5,4 +5,5 @@ export interface IAuction {
   auctionDuration: number;
   description: string;
   auctionType: string;
+  img: string;
 }

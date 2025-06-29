@@ -10,7 +10,7 @@ export const AuctionCard = ({ children }: { children: ReactNode }) => {
 };
 
 const Image = ({ src, alt }: ImageProps) => {
-  <CardMedia component="img" image={src} alt={alt} />;
+  return <CardMedia component="img" image={src} alt={alt} />;
 };
 const Footer = ({ children }: { children: ReactNode }) => {
   return (
