@@ -12,9 +12,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <SnackbarProvider>
       <AuthProvider>
-        {/* <ErrorBoundary fallback={<ErrorComponent />}> */}
-          <App />
-        {/* </ErrorBoundary> */}
+        <App />
       </AuthProvider>
     </SnackbarProvider>
   </StrictMode>
