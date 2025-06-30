@@ -4,7 +4,7 @@ import { enJSON } from "./en";
 import { esJSON } from "./es";
 
 i18n.use(initReactI18next).init({
-  lng: "en",
+  lng: "es",
   fallbackLng: "es",
   interpolation: {
     escapeValue: false,

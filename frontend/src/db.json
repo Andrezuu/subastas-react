@@ -249,6 +249,41 @@
       "amount": 1201,
       "userId": "1",
       "timestamp": "2025-06-30T16:46:32.173Z"
+    },
+    {
+      "id": "1ac6",
+      "auctionId": "3",
+      "amount": 1111,
+      "userId": "1",
+      "timestamp": "2025-06-30T16:56:38.427Z"
+    },
+    {
+      "id": "3b9e",
+      "auctionId": "3",
+      "amount": 2,
+      "userId": "1",
+      "timestamp": "2025-06-30T17:23:51.357Z"
+    },
+    {
+      "id": "7586",
+      "auctionId": "3",
+      "amount": 23,
+      "userId": "1",
+      "timestamp": "2025-06-30T17:24:36.917Z"
+    },
+    {
+      "id": "166b",
+      "auctionId": "3",
+      "amount": 11,
+      "userId": "1",
+      "timestamp": "2025-06-30T17:25:08.247Z"
+    },
+    {
+      "id": "ee05",
+      "auctionId": "3",
+      "amount": 2,
+      "userId": "1",
+      "timestamp": "2025-06-30T17:26:23.258Z"
     }
   ]
 }

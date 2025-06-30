@@ -30,7 +30,6 @@ export const useAppWebSocket = () => {
 
   const setCurrentBid = useBidStore((state) => state.setCurrentBid);
   const addBid = useBidStore((state) => state.addBid);
-  const setWinner = useBidStore((state) => state.setWinner);
 
   const socketRef = useRef<Socket<ServerToClientEvents> | null>(null);
 
@@ -74,10 +73,6 @@ export const useAppWebSocket = () => {
       socket.on("BID_ERROR", (error: string) => {
         setBidError(error);
         setTimeout(() => setBidError(null), 3000);
-      });
-
-      socket.on("AUCTION_END", (data: { productId: string; winner: IBid }) => {
-        setWinner(data.productId, data.winner);
       });
     }
 

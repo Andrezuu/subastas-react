@@ -60,7 +60,6 @@ export const useBidHistory = () => {
     const totalSpent = bids.reduce((sum, bid) => sum + bid.amount, 0);
     const averageBid = totalSpent / totalBids;
 
-    // Simple win calculation - check if user has highest bid in each auction
     const auctionGroups = bids.reduce((acc: Record<string, IBid[]>, bid) => {
       if (!acc[bid.auctionId]) acc[bid.auctionId] = [];
       acc[bid.auctionId].push(bid);
@@ -68,12 +67,18 @@ export const useBidHistory = () => {
     }, {});
 
     let auctionsWon = 0;
+    const now = new Date().getTime();
     Object.values(auctionGroups).forEach((auctionBids) => {
       const highestBid = auctionBids.reduce((highest, current) =>
         current.amount > highest.amount ? current : highest
       );
       if (highestBid.userId === user?.id) {
-        auctionsWon++;
+        const auction = auctions.find(
+          (auction) => auction.id.toString() === highestBid.auctionId
+        );
+        if (auction && new Date(auction.endTime).getTime() < now) {
+          auctionsWon++;
+        }
       }
     });
 

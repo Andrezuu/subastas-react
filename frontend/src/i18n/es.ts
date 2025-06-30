@@ -1,6 +1,6 @@
 export const esJSON = {
   snackbar: {
-    noSession: "No has iniciado sesión",
+    noSession: "No tienes una sesión activa",
   },
   error: {
     generic: "Algo salió mal",
@@ -49,9 +49,15 @@ export const esJSON = {
     formUpdate: "Actualizar",
     formCancel: "Cancelar",
     tableActions: "Acciones",
+    upcoming: "Próxima",
+    active: "Activa",
+    ended: "Finalizada",
+    startsAt: "Inicia el",
+    waitingToStart: "Esta subasta aún no ha comenzado",
+    loginToSeeResults: "Inicia sesión para ver los resultados completos",
   },
   home: {
-    title: "Últimas Subastas",
+    title: "Plataforma de Subastas",
     noAuctions: "No hay subastas disponibles",
     basePrice: "Precio Base",
     currentBid: "Oferta Actual",
@@ -60,13 +66,17 @@ export const esJSON = {
     pastAuction: "Finalizada",
     futureAuction: "Próximamente",
     presentAuction: "En curso",
+    all: "Todas",
+    active: "Activas",
+    ended: "Finalizadas",
+    upcoming: "Próximas",
   },
   timer: {
-    title: "Tiempo restante",
-    days: "Días",
-    hours: "Horas",
-    minutes: "Min",
-    seconds: "Seg",
+    title: "Tiempo Restante",
+    days: "días",
+    hours: "horas",
+    minutes: "minutos",
+    seconds: "segundos",
   },
   bid: {
     minimumBid: "La oferta mínima es",
@@ -87,9 +97,12 @@ export const esJSON = {
     auctionEnded: "¡La subasta ha terminado!",
     by: "Por",
     loginRequired: "Debes iniciar sesión para ofertar",
+    congratulations: "¡Felicitaciones!",
+    youWon: "Has ganado esta subasta",
+    auctionNotFound: "Subasta no encontrada",
   },
   bidHistory: {
-    title: "Historial de Ofertas",
+    title: "Mi Historial de Ofertas",
     totalSpent: "Total Gastado",
     averageBid: "Oferta Promedio",
     auctionsWon: "Subastas Ganadas",
@@ -100,7 +113,7 @@ export const esJSON = {
     recentBids: "Ofertas Recientes",
     startBidding:
       "Comienza a participar en subastas para ver tu historial aquí",
-    noBids: "No se realizaron ofertas en esta subasta",
+    noBids: "No hay ofertas disponibles",
   },
   admin: {
     title: "Panel de Administración",

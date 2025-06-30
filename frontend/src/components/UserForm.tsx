@@ -44,7 +44,6 @@ export const UserForm = ({ open, onClose, editingItem }: UserFormProps) => {
                   formik.touched.username && Boolean(formik.errors.username)
                 }
                 helperText={formik.touched.username && formik.errors.username}
-                disabled={!!editingItem}
               />
             </Grid>
 
@@ -58,7 +57,6 @@ export const UserForm = ({ open, onClose, editingItem }: UserFormProps) => {
                 onChange={formik.handleChange}
                 error={formik.touched.role && Boolean(formik.errors.role)}
                 helperText={formik.touched.role && formik.errors.role}
-                SelectProps={{ native: true }}
               >
                 <option value="user">{t("auth.roleUser")}</option>
                 <option value="admin">{t("auth.roleAdmin")}</option>

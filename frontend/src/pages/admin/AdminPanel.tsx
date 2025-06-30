@@ -241,7 +241,7 @@ export const AdminPanel = () => {
         <DialogTitle>{t("admin.confirmDelete")}</DialogTitle>
         <DialogContent>
           <Typography>
-            {t("admin.deleteMessage")} {deleteDialog.type} "{deleteDialog.itemName}"? {t("admin.deleteAction")}
+            {t("admin.deleteMessage")} "{deleteDialog.itemName}"? {t("admin.deleteAction")}
           </Typography>
         </DialogContent>
         <DialogActions>

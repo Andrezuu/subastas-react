@@ -89,6 +89,9 @@ export const enJSON = {
     auctionEnded: "Auction has ended",
     by: "By",
     loginRequired: "You must be logged in to bid",
+    congratulations: "Congratulations!",
+    youWon: "You won this auction",
+    auctionNotFound: "Auction not found"
   },
   bidHistory: {
     title: "Bid History",

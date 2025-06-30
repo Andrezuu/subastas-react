@@ -5,11 +5,6 @@ import { severities } from "../constants/severities";
 import { useUserStore } from "../store/useUserStore";
 import { useTranslation } from "react-i18next";
 
-interface AdminStatistics {
-  totalAuctions: number;
-  totalUsers: number;
-  activeAuctions: number;
-}
 
 export const useAdminPanel = () => {
   const { t } = useTranslation();
@@ -39,7 +34,6 @@ export const useAdminPanel = () => {
     }
   }, []);
 
-  // ✅ Manejar errores
   useEffect(() => {
     if (auctionError) {
       showMessage(auctionError, severities.ERROR);

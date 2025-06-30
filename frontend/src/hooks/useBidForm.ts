@@ -15,7 +15,6 @@ interface BidFormValues {
   amount: string;
 }
 
-// ✅ useBidForm.ts corregido
 export const useBidForm = () => {
   const getUserById = useUserStore((state) => state.getUserById);
   const { auctionId } = useParams<{ auctionId: string }>();
@@ -34,14 +33,14 @@ export const useBidForm = () => {
     : undefined;
 
   const minimumBid = currentBid
-    ? currentBid.amount + 1
+    ? currentBid.amount + 0.01
     : auction?.basePrice || 0;
 
   const bidSchema = Yup.object({
     amount: Yup.number()
       .required(t("bid.amountRequired"))
-      .min(minimumBid, `${t("bid.minimumBid")} ${minimumBid}`)
-      .positive(t("bid.positiveAmount")),
+      .positive(t("bid.positiveAmount"))
+      .min(minimumBid, `${t("bid.minimumBid")} $${minimumBid}`),
   });
 
   const formik = useFormik({
@@ -67,12 +66,6 @@ export const useBidForm = () => {
     try {
       const bidAmount = parseFloat(values.amount);
 
-      if (bidAmount < minimumBid) {
-        showMessage(`${t("bid.minimumBid")} ${minimumBid}`, severities.ERROR);
-        return;
-      }
-
-      // WebSocket actualiza automáticamente el BidStore
       placeBid(auctionId, bidAmount, user.id);
 
       await createBid({
@@ -82,14 +75,11 @@ export const useBidForm = () => {
         timestamp: new Date().toISOString(),
       });
 
-      showMessage(
-        t("bid.success") || "Bid placed successfully!",
-        severities.SUCCESS
-      );
+      showMessage(t("bid.success"), severities.SUCCESS);
       formik.resetForm();
     } catch (error) {
       console.error("Error placing bid:", error);
-      showMessage(t("bid.error") || "Error placing bid", severities.ERROR);
+      showMessage(t("bid.error"), severities.ERROR);
     }
   };
 
