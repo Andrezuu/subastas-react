@@ -5,6 +5,7 @@ import { useSnackbar } from "../contexts/SnackbarContext";
 import { useUserStore } from "../store/useUserStore";
 import { severities } from "../constants/severities";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 interface UseUserProps {
   editingItem?: IUser | null;
@@ -16,12 +17,16 @@ export const useUser = ({ editingItem, onSuccess }: UseUserProps = {}) => {
   const createUser = useUserStore((state) => state.createUser);
   const updateUser = useUserStore((state) => state.updateUser);
   const error = useUserStore((state) => state.error);
+  const { t } = useTranslation();
 
   const userSchema = Yup.object({
-    username: Yup.string().required("Username is required"),
+    username: Yup.string()
+      .min(3, t("forms.minLength", { min: 3 }))
+      .max(30, t("forms.maxLength", { max: 30 }))
+      .required(t("forms.required")),
     role: Yup.string()
-      .oneOf(["user", "admin"], "Invalid role")
-      .required("Role is required"),
+      .oneOf(["user", "admin"], t("forms.invalidRole"))
+      .required(t("forms.required")),
   });
 
   useEffect(() => {
@@ -37,10 +42,10 @@ export const useUser = ({ editingItem, onSuccess }: UseUserProps = {}) => {
     onSubmit: (values: IUser) => {
       if (editingItem) {
         updateUser({ id: editingItem.id, ...values });
-        showMessage("User updated successfully", severities.SUCCESS);
+        showMessage(t("admin.userUpdated"), severities.SUCCESS);
       } else {
         createUser(values);
-        showMessage("User created successfully", severities.SUCCESS);
+        showMessage(t("admin.userCreated"), severities.SUCCESS);
       }
 
       onSuccess?.();

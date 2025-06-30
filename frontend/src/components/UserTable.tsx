@@ -2,20 +2,24 @@ import { Edit, Delete } from "@mui/icons-material";
 import { Typography, Box, IconButton } from "@mui/material";
 import { DataGrid, type GridColDef } from "@mui/x-data-grid";
 import { useUserStore } from "../store/useUserStore";
+import { useTranslation } from "react-i18next";
 
 interface UserTableProps {
   handleEditUser: (user: any) => void;
   handleDeleteUser: (userId: string) => void;
 }
+
 export const UserTable = ({
   handleDeleteUser,
   handleEditUser,
 }: UserTableProps) => {
+  const { t } = useTranslation();
   const users = useUserStore((state) => state.users);
+  
   const userColumns: GridColDef[] = [
     {
       field: "username",
-      headerName: "Username",
+      headerName: t("admin.username"),
       width: 200,
       renderCell: (params) => (
         <Typography variant="body1" fontWeight="medium">
@@ -25,7 +29,7 @@ export const UserTable = ({
     },
     {
       field: "role",
-      headerName: "Role",
+      headerName: t("admin.role"),
       width: 120,
       renderCell: (params) => (
         <Typography
@@ -33,13 +37,13 @@ export const UserTable = ({
           color={params.value === "admin" ? "error.main" : "text.secondary"}
           fontWeight={params.value === "admin" ? "bold" : "normal"}
         >
-          {params.value}
+          {params.value === "admin" ? t("auth.roleAdmin") : t("auth.roleUser")}
         </Typography>
       ),
     },
     {
       field: "actions",
-      headerName: "Actions",
+      headerName: t("admin.actions"),
       width: 120,
       renderCell: (params) => (
         <Box>

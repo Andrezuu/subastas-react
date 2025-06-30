@@ -99,6 +99,6 @@ export const useBidForm = () => {
     minimumBid,
     auction,
     currentBid,
-    currentBidUser, // ✅ Ahora será correcto
+    currentBidUser,
   };
 };

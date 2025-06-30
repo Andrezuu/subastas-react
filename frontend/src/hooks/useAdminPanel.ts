@@ -3,6 +3,7 @@ import { useAuctionStore } from "../store/useAuctionStore";
 import { useSnackbar } from "../contexts/SnackbarContext";
 import { severities } from "../constants/severities";
 import { useUserStore } from "../store/useUserStore";
+import { useTranslation } from "react-i18next";
 
 interface AdminStatistics {
   totalAuctions: number;
@@ -11,6 +12,7 @@ interface AdminStatistics {
 }
 
 export const useAdminPanel = () => {
+  const { t } = useTranslation();
   const [tabValue, setTabValue] = useState(0);
   const [openAuctionDialog, setOpenAuctionDialog] = useState(false);
   const [openUserDialog, setOpenUserDialog] = useState(false);
@@ -86,12 +88,12 @@ export const useAdminPanel = () => {
 
   const handleDeleteUser = (id: string) => {
     deleteUser(id);
-    showMessage("User deleted successfully", severities.SUCCESS);
+    showMessage(t("admin.userDeleted"), severities.SUCCESS);
   };
 
   const handleDeleteAuction = (id: string) => {
     deleteAuction(id);
-    showMessage("Auction deleted successfully", severities.SUCCESS);
+    showMessage(t("admin.auctionDeleted"), severities.SUCCESS);
   };
   return {
     handleEditAuction,
@@ -110,6 +112,6 @@ export const useAdminPanel = () => {
     openUserDialog,
     setOpenUserDialog,
     editingAuction,
-    editingUser
+    editingUser,
   };
 };

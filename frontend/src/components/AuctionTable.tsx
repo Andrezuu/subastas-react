@@ -3,6 +3,7 @@ import { Typography, Box, IconButton } from "@mui/material";
 import { DataGrid, type GridColDef } from "@mui/x-data-grid";
 import { useAuctionStore } from "../store/useAuctionStore";
 import type { IAuction } from "../interfaces/IAuction";
+import { useTranslation } from "react-i18next";
 
 interface AuctionTableProps {
   handleEditAuction: (auction: IAuction) => void;
@@ -13,10 +14,11 @@ export const AuctionTable = ({
   handleDeleteAuction,
 }: AuctionTableProps) => {
   const auctions = useAuctionStore((state) => state.auctions);
+  const { t } = useTranslation();
   const auctionColumns: GridColDef[] = [
     {
       field: "name",
-      headerName: "Auction Name",
+      headerName: t("auction.formName"),
       width: 250,
       renderCell: (params) => (
         <Typography variant="body1" fontWeight="medium">
@@ -26,7 +28,7 @@ export const AuctionTable = ({
     },
     {
       field: "basePrice",
-      headerName: "Base Price",
+      headerName: t("auction.formBasePrice"),
       width: 120,
       renderCell: (params) => (
         <Typography variant="body2" color="primary.main" fontWeight="bold">
@@ -36,7 +38,7 @@ export const AuctionTable = ({
     },
     {
       field: "endTime",
-      headerName: "End Time",
+      headerName: t("auction.formEndDate"),
       width: 180,
       renderCell: (params) => (
         <Typography variant="body2">
@@ -46,7 +48,7 @@ export const AuctionTable = ({
     },
     {
       field: "actions",
-      headerName: "Actions",
+      headerName: t("auction.tableActions"),
       width: 120,
       renderCell: (params) => (
         <Box>

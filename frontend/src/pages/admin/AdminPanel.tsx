@@ -19,6 +19,7 @@ import { UserForm } from "../../components/UserForm";
 import { useAdminPanel } from "../../hooks/useAdminPanel";
 import { UserTable } from "../../components/UserTable";
 import { AuctionTable } from "../../components/AuctionTable";
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 
 const TabPanel = ({
@@ -38,6 +39,7 @@ const TabPanel = ({
 };
 
 export const AdminPanel = () => {
+  const { t } = useTranslation();
   const {
     handleDeleteAuction,
     handleEditAuction,
@@ -99,7 +101,7 @@ export const AdminPanel = () => {
         gutterBottom
         sx={{ fontWeight: "bold", color: "primary.main", mb: 4 }}
       >
-        Admin Panel
+        {t("admin.title")}
       </Typography>
 
       {/* Statistics */}
@@ -114,7 +116,7 @@ export const AdminPanel = () => {
                 {statistics.totalAuctions}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Total Auctions
+                {t("admin.totalAuctions")}
               </Typography>
             </CardContent>
           </Card>
@@ -130,7 +132,7 @@ export const AdminPanel = () => {
                 {statistics.totalUsers}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Total Users
+                {t("admin.totalUsers")}
               </Typography>
             </CardContent>
           </Card>
@@ -146,7 +148,7 @@ export const AdminPanel = () => {
                 {statistics.activeAuctions}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Active Auctions
+                {t("admin.activeAuctions")}
               </Typography>
             </CardContent>
           </Card>
@@ -156,8 +158,8 @@ export const AdminPanel = () => {
       {/* Tabs */}
       <Card elevation={2}>
         <Tabs value={tabValue} onChange={handleTabChange}>
-          <Tab label="Manage Auctions" />
-          <Tab label="Manage Users" />
+          <Tab label={t("admin.manageAuctions")} />
+          <Tab label={t("admin.manageUsers")} />
         </Tabs>
 
         <TabPanel value={tabValue} index={0}>
@@ -169,14 +171,14 @@ export const AdminPanel = () => {
               mb={2}
             >
               <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                Auctions Management
+                {t("admin.manageAuctions")}
               </Typography>
               <Button
                 variant="contained"
                 startIcon={<Add />}
                 onClick={handleCreateAuction}
               >
-                Create Auction
+                {t("admin.createAuction")}
               </Button>
             </Box>
 
@@ -198,14 +200,14 @@ export const AdminPanel = () => {
               mb={2}
             >
               <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                Users Management
+                {t("admin.manageUsers")}
               </Typography>
               <Button
                 variant="contained"
                 startIcon={<Add />}
                 onClick={handleCreateUser}
               >
-                Create User
+                {t("admin.createUser")}
               </Button>
             </Box>
 
@@ -236,11 +238,10 @@ export const AdminPanel = () => {
         open={deleteDialog.open}
         onClose={() => setDeleteDialog((prev) => ({ ...prev, open: false }))}
       >
-        <DialogTitle>Confirm Delete</DialogTitle>
+        <DialogTitle>{t("admin.confirmDelete")}</DialogTitle>
         <DialogContent>
           <Typography>
-            Are you sure you want to delete {deleteDialog.type} "
-            {deleteDialog.itemName}"? This action cannot be undone.
+            {t("admin.deleteMessage")} {deleteDialog.type} "{deleteDialog.itemName}"? {t("admin.deleteAction")}
           </Typography>
         </DialogContent>
         <DialogActions>
@@ -249,14 +250,14 @@ export const AdminPanel = () => {
               setDeleteDialog((prev) => ({ ...prev, open: false }))
             }
           >
-            Cancel
+            {t("admin.cancel")}
           </Button>
           <Button
             onClick={deleteDialog.onConfirm}
             color="error"
             variant="contained"
           >
-            Delete
+            {t("admin.delete")}
           </Button>
         </DialogActions>
       </Dialog>

@@ -21,12 +21,24 @@ export const AuctionInfo = () => {
   const { timers } = useAppWebSocket();
 
   if (!auctionId) {
-    return <Typography>Invalid auction ID</Typography>;
+    return (
+      <Box sx={{ maxWidth: 800, mx: "auto", p: 2, textAlign: "center" }}>
+        <Typography variant="h6" color="error">
+          {t("bid.invalidAuction")}
+        </Typography>
+      </Box>
+    );
   }
 
   const auction = getAuctionById(auctionId);
   if (!auction) {
-    return <Typography>Loading...</Typography>;
+    return (
+      <Box sx={{ maxWidth: 800, mx: "auto", p: 2, textAlign: "center" }}>
+        <Typography variant="h6" color="error">
+          {t("auth.auctionNotFound")}
+        </Typography>
+      </Box>
+    );
   }
 
   const timer = timers[auction.id];
@@ -49,11 +61,10 @@ export const AuctionInfo = () => {
             {auction.name}
           </Typography>
 
-          <Typography variant="body1" color="text.secondary">
+          <Typography variant="body1" color="text.secondary" paragraph>
             {auction.description}
           </Typography>
 
-          {/* ✅ Solo mostrar timer si está activa */}
           {timer && timer.type === auctionTypes.PRESENT && !isAuctionEnded && (
             <Box mb={2}>
               <Typography variant="h6">{t("timer.title")}</Typography>
@@ -76,23 +87,22 @@ export const AuctionInfo = () => {
             </Typography>
           )}
 
-          {/* ✅ Mostrar resultado final mejorado */}
           {isAuctionEnded ? (
             <Box mt={2} p={2} bgcolor="success.light" borderRadius={1}>
               <Typography variant="h5" color="success.main" gutterBottom>
-                🎉 Auction Ended!
+                🎉 {t("bid.auctionEnded")} PENE
               </Typography>
-              {user ? (
+              {currentBid && user ? (
                 <>
                   <Typography variant="h6">
-                    Winner: {user.username || user.id}
+                    {t("bid.winner")}: {user.username || user.id}
                   </Typography>
                   <Typography variant="h6" color="secondary">
-                    Final Price: ${currentBid!.amount}
+                    {t("bid.finalPrice")}: ${currentBid.amount}
                   </Typography>
                 </>
               ) : (
-                <Typography>No bids were placed for this auction.</Typography>
+                <Typography>{t("bidHistory.noBids")}</Typography>
               )}
             </Box>
           ) : (

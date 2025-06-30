@@ -242,6 +242,13 @@
       "amount": 354.03,
       "userId": "1",
       "timestamp": "2025-06-30T15:51:05.192Z"
+    },
+    {
+      "id": "92b2",
+      "auctionId": "2",
+      "amount": 1201,
+      "userId": "1",
+      "timestamp": "2025-06-30T16:46:32.173Z"
     }
   ]
 }
