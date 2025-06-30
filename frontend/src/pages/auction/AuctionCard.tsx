@@ -1,16 +1,35 @@
-import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
+import { Card, CardMedia, Typography, Box } from "@mui/material";
 import type { ReactNode } from "react";
 
 interface ImageProps {
   src: string;
   alt: string;
 }
+
+interface TimerProps {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
 export const AuctionCard = ({ children }: { children: ReactNode }) => {
-  return <Card>{children}</Card>;
+  return (
+    <Card
+      sx={{
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        width: 345,
+      }}
+    >
+      {children}
+    </Card>
+  );
 };
 
 const Image = ({ src, alt }: ImageProps) => {
-  return <CardMedia component="img" image={src} alt={alt} />;
+  return <CardMedia component="img" height="200" image={src} alt={alt} />;
 };
 const Footer = ({ children }: { children: ReactNode }) => {
   return (
@@ -22,7 +41,13 @@ const Footer = ({ children }: { children: ReactNode }) => {
 
 const Description = ({ children }: { children: ReactNode }) => {
   return (
-    <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      sx={{
+        mb: 2,
+      }}
+    >
       {children}
     </Typography>
   );
@@ -104,3 +129,4 @@ AuctionCard.Footer = Footer;
 AuctionCard.Title = Title;
 AuctionCard.Image = Image;
 AuctionCard.Timer = Timer;
+AuctionCard.Description = Description;

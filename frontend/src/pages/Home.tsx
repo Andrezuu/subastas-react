@@ -1,9 +1,7 @@
-import { use, useEffect } from "react";
-import { Box, Typography, Grid, CircularProgress } from "@mui/material";
+import { useEffect } from "react";
+import { Box, Typography, Grid } from "@mui/material";
 import { useAuctionStore } from "../store/useAuctionStore";
-import { useSnackbar } from "../contexts/SnackbarContext";
 import { useTranslation } from "react-i18next";
-import { severities } from "../constants/severities";
 import { AuctionCard } from "./auction/AuctionCard";
 import { useWebSocket } from "../hooks/useWebSocket";
 import { auctionTypes } from "../constants/auctionTypes";
@@ -67,7 +65,7 @@ function Home() {
             const timer = timers[auction.id];
 
             return (
-              <Grid sx={{ xs: 12, sm: 6, md: 4, lg: 4 }} key={auction.id}>
+              <Grid sx={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={auction.id}>
                 <AuctionCard>
                   <AuctionCard.Image
                     src={auction.img || "https://picsum.photos/300/200"}
@@ -87,13 +85,9 @@ function Home() {
                   <Box p={2}>
                     <AuctionCard.Title>{auction.name}</AuctionCard.Title>
 
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      sx={{ mb: 2 }}
-                    >
+                    <AuctionCard.Description>
                       {auction.description}
-                    </Typography>
+                    </AuctionCard.Description>
 
                     <Box sx={{ mb: 2 }}>
                       <Typography variant="body2" color="text.secondary">
