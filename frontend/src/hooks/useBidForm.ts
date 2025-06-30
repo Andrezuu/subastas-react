@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import { useAuth } from "../contexts/AuthContext";
 import { useAuctionStore } from "../store/useAuctionStore";
 import { severities } from "../constants/severities";
+import { createBid } from "../services/bidService";
 
 interface BidFormValues {
   amount: string;
@@ -62,6 +63,12 @@ export const useBidForm = () => {
       }
 
       placeBid(auctionId, bidAmount, user.id);
+      await createBid({
+        auctionId,
+        amount: bidAmount,
+        userId: user.id,
+        timestamp: new Date().toISOString(),
+      });
       showMessage(
         t("bid.success") || "Bid placed successfully!",
         severities.SUCCESS

@@ -23,7 +23,7 @@ export const useLogin = () => {
   const { login } = useAuth();
   const { showMessage } = useSnackbar();
   const formik = useFormik({
-    initialValues: { username: "" },
+    initialValues: { username: "admin" },
     validationSchema: loginSchema,
     onSubmit: async (values: LoginFormValues) => {
       await handleSubmit(values);

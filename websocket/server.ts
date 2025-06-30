@@ -59,14 +59,14 @@ const loadHighestBidsFromDatabase = () => {
   let totalBidsLoaded = 0;
 
   auctions.forEach((auction: IAuction) => {
-    const auctionBids = getBidsByAuctionId(auction.id.toString());
+    const auctionBids = getBidsByAuctionId(auction.id!.toString());
 
     if (auctionBids.length > 0) {
       const highestBid = auctionBids.reduce((highest, current) => {
         return current.amount > highest.amount ? current : highest;
       });
 
-      currentHighestBids[auction.id.toString()] = highestBid;
+      currentHighestBids[auction.id!.toString()] = highestBid;
       totalBidsLoaded++;
 
       console.log(
@@ -117,10 +117,10 @@ const processAuctions = () => {
       auction.endTime
     );
 
-    if (calculatedType === auctionTypes.PAST && !auctionWinners[auction.id]) {
-      const highestBid = currentHighestBids[auction.id];
+    if (calculatedType === auctionTypes.PAST && !auctionWinners[auction.id!]) {
+      const highestBid = currentHighestBids[auction.id!];
       if (highestBid) {
-        auctionWinners[auction.id] = highestBid;
+        auctionWinners[auction.id!] = highestBid;
         io.emit("AUCTION_END", {
           productId: auction.id,
           winner: highestBid,
@@ -149,7 +149,7 @@ const processAuctions = () => {
 const validateBid = (bid: IBid): { isValid: boolean; error?: string } => {
   const auctions = getAuctions();
   const auction = auctions.find(
-    (a: IAuction) => a.id.toString() === bid.auctionId
+    (a: IAuction) => a.id!.toString() === bid.auctionId
   );
 
   if (!auction) {

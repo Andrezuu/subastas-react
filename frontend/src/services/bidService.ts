@@ -55,3 +55,18 @@ export const getAllBids = async () => {
     throw error;
   }
 };
+
+export const getBidHistoryByUserId = async (userId: string) => {
+  try {
+    const response = await jsonServerInstance.get(
+      `/bids?userId=${userId}&_sort=timestamp&_order=desc`
+    );
+    if (!response) {
+      throw new Error("Failed to fetch bid history");
+    }
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching bid history:", error);
+    throw error;
+  }
+};

@@ -4,10 +4,11 @@ import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 import ProtectedRoutes from "../guards/ProtectedRoutes";
 import { Layout } from "../layout/Layout";
-import ErrorComponent from "../components/ErrorComponent";
 import { useTranslation } from "react-i18next";
 import Home from "../pages/Home";
 import { AuctionInfo } from "../pages/auction/AuctionInfo";
+import { BidHistory } from "../pages/user/BidHistory";
+import { AdminPanel } from "../pages/admin/AdminPanel";
 
 export const AppRoutes = () => {
   const { t } = useTranslation();
@@ -27,6 +28,8 @@ export const AppRoutes = () => {
         >
           <Route path="" element={<Home />} />
           <Route path="auction/:auctionId" element={<AuctionInfo />} />
+          <Route path="myBids" element={<BidHistory />} />
+          <Route path="admin" element={<AdminPanel />} />
         </Route>
       </Routes>
       {/* </ErrorBoundary> */}

@@ -1,3 +1,5 @@
+import { BidHistory } from "../pages/user/BidHistory";
+
 export const enJSON = {
   snackbar: {
     noSession: "You are not logged in",
@@ -26,6 +28,7 @@ export const enJSON = {
   sidebar: {
     home: "Home",
     logout: "Logout",
+    bidHistory: "Bid History",
   },
   auction: {
     createError: "Error creating auction",
@@ -60,5 +63,18 @@ export const enJSON = {
     byUser: "By User",
     user: "User",
     finalPrice: "Final Price",
+  },
+  BidHistory: {
+    title: "Bid History",
+    noBids: "No bids found",
+    totalSpent: "Total Spent",
+    averageBid: "Average Bid",
+    auctionsWon: "Auctions Won",
+    totalBids: "Total Bids",
+    auction: "Auction",
+    amount: "Amount",
+    time: "Date and Time",
+    recentBids: "Recent Bids",
+    startBidding: "Start participating in auctions to see your history here",
   },
 };

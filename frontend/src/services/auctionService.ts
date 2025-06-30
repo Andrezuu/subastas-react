@@ -28,3 +28,26 @@ export const createAuction = async (auction: IAuction) => {
     console.error("Error creating auction:", error);
   }
 };
+
+export const updateAuction = async (
+  id: string,
+  auctionData: Partial<IAuction>
+) => {
+  try {
+    const response = await jsonServerInstance.put(
+      `/auctions/${id}`,
+      auctionData
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error updating auction:", error);
+  }
+};
+
+export const deleteAuction = async (id: string) => {
+  try {
+    await jsonServerInstance.delete(`/auctions/${id}`);
+  } catch (error) {
+    console.error("Error deleting auction:", error);
+  }
+};

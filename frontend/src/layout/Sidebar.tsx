@@ -28,9 +28,9 @@ const Sidebar = ({
   isMobile,
 }: SidebarProps) => {
   const location = useLocation();
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
   const { t } = useTranslation();
-  const menu = useMemo(() => getMenu(t, logout), []);
+  const menu = useMemo(() => getMenu(t, logout, user), []);
   const drawer = useMemo(
     () => (
       <>

@@ -27,6 +27,7 @@ export const esJSON = {
   sidebar: {
     home: "Inicio",
     logout: "Cerrar Sesión",
+    bidHistory: "Historial de Ofertas",
   },
   home: {
     title: "Últimas Subastas",
@@ -58,5 +59,18 @@ export const esJSON = {
     winner: "Ganador",
     user: "Usuario",
     finalPrice: "Precio Final",
+  },
+  bidHistory: {
+    title: "Historial de Ofertas",
+    noBids: "No hay ofertas disponibles",
+    totalSpent: "Total Gastado",
+    averageBid: "Oferta Promedio",
+    auctionsWon: "Subastas Ganadas",
+    totalBids: "Total de Ofertas",
+    auction: "Subasta",
+    amount: "Monto",
+    time: "Fecha y Hora",
+    recentBids: "Ofertas Recientes",
+    startBidding: "Comienza a participar en subastas para ver tu historial aquí",
   },
 };

@@ -1,15 +1,30 @@
-import { BusinessCenter, Info } from "@mui/icons-material";
+import { Home, Logout, ManageAccounts, Timeline } from "@mui/icons-material";
 import type { TFunction } from "i18next";
+import type { IUser } from "../interfaces/IUser";
 
-export const getMenu = (t: TFunction, logout: () => void) => [
+export const getMenu = (t: TFunction, logout: () => void, user: IUser) => [
   {
     title: t("sidebar.home"),
-    icon: <BusinessCenter />,
+    icon: <Home />,
     path: "/app",
   },
   {
+    title: t("sidebar.bidHistory"),
+    icon: <Timeline />,
+    path: "/app/myBids",
+  },
+  ...(user.role === "admin"
+    ? [
+        {
+          title: t("sidebar.panelAdmin"),
+          icon: <ManageAccounts />,
+          path: "/app/admin",
+        },
+      ]
+    : []),
+  {
     title: t("sidebar.logout"),
-    icon: <Info />,
+    icon: <Logout />,
     path: "/login",
     onClick: logout,
   },

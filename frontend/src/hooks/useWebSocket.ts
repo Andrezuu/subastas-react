@@ -65,12 +65,6 @@ export const useAppWebSocket = () => {
 
       socket.on("BID_UPDATE", async (bid: IBid) => {
         setCurrentBids((prev) => ({ ...prev, [bid.auctionId]: bid }));
-        await createBid({
-          auctionId: bid.auctionId,
-          amount: bid.amount,
-          userId: bid.userId,
-          timestamp: new Date().toISOString(),
-        });
         setBidError(null);
       });
 
