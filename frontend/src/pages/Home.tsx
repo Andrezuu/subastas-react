@@ -3,43 +3,17 @@ import { Box, Typography, Grid } from "@mui/material";
 import { useAuctionStore } from "../store/useAuctionStore";
 import { useTranslation } from "react-i18next";
 import { AuctionCard } from "./auction/AuctionCard";
-import { useWebSocket } from "../hooks/useWebSocket";
+import { useAppWebSocket } from "../hooks/useWebSocket";
 import { auctionTypes } from "../constants/auctionTypes";
 
 function Home() {
   const auctions = useAuctionStore((state) => state.auctions);
   const fetchAuctions = useAuctionStore((state) => state.fetchAuctions);
   const { t } = useTranslation();
-  const { timers } = useWebSocket();
-  const getStatusColor = (type: string) => {
-    switch (type) {
-      case auctionTypes.PRESENT:
-        return "success.main";
-      case auctionTypes.FUTURE:
-        return "warning.main";
-      case auctionTypes.PAST:
-        return "error.main";
-      default:
-        return "grey.500";
-    }
-  };
-
-  const getStatusText = (type: string) => {
-    switch (type) {
-      case auctionTypes.PRESENT:
-        return t("home.presentAuction");
-      case auctionTypes.FUTURE:
-        return t("home.futureAuction");
-      case auctionTypes.PAST:
-        return t("home.pastAuction");
-      default:
-        return "Estado desconocido";
-    }
-  };
+  const { timers } = useAppWebSocket();
 
   useEffect(() => {
     fetchAuctions();
-    console.log("Timers from Home:", timers[1]);
   }, []);
 
   return (
@@ -67,56 +41,43 @@ function Home() {
             return (
               <Grid sx={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={auction.id}>
                 <AuctionCard>
-                  <AuctionCard.Image
-                    src={auction.img || "https://picsum.photos/300/200"}
-                    alt={auction.name}
-                  />
-
-                  {timer && timer.type === auctionTypes.PRESENT && (
-                    <AuctionCard.Timer
-                      days={timer.timeLeft.days}
-                      hours={timer.timeLeft.hours}
-                      minutes={timer.timeLeft.minutes}
-                      seconds={timer.timeLeft.seconds}
-                      expired={timer.timeLeft.expired}
+                  <AuctionCard.ImageContainer>
+                    <AuctionCard.Image
+                      src={auction.img || "https://picsum.photos/300/200"}
+                      alt={auction.name}
                     />
-                  )}
+                    {timer && timer.type === auctionTypes.PRESENT && (
+                      <AuctionCard.Timer
+                        days={timer.timeLeft.days}
+                        hours={timer.timeLeft.hours}
+                        minutes={timer.timeLeft.minutes}
+                        seconds={timer.timeLeft.seconds}
+                      />
+                    )}
+                  </AuctionCard.ImageContainer>
 
-                  <Box p={2}>
+                  <Box
+                    p={2}
+                    sx={{ textAlign: "center", borderTop: "1px solid #eee" }}
+                  >
                     <AuctionCard.Title>{auction.name}</AuctionCard.Title>
 
-                    <AuctionCard.Description>
-                      {auction.description}
-                    </AuctionCard.Description>
-
-                    <Box sx={{ mb: 2 }}>
-                      <Typography variant="body2" color="text.secondary">
-                        {t("home.basePrice")}
-                        <Box
-                          component="span"
-                          fontWeight="bold"
-                          color="primary.main"
-                          ml={1}
-                        >
-                          ${auction.basePrice}
-                        </Box>
-                      </Typography>
-                    </Box>
-
                     <AuctionCard.Footer>
-                      <Box
-                        sx={{
-                          px: 2,
-                          py: 1,
-                          borderRadius: 1,
-                          textAlign: "center",
-                          backgroundColor: getStatusColor(timer && timer.type),
-                          color: "white",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        {getStatusText(timer && timer.type)}
-                      </Box>
+                      {(() => {
+                        if (!timer) return null;
+                        switch (timer.type) {
+                          case auctionTypes.PRESENT:
+                            return `${t(
+                              "home.currentBid"
+                            )} ${auction.basePrice.toFixed(2)}`;
+                          case auctionTypes.PAST:
+                            return t("home.pastAuction");
+                          case auctionTypes.FUTURE:
+                            return t("home.futureAuction");
+                          default:
+                            return null;
+                        }
+                      })()}
                     </AuctionCard.Footer>
                   </Box>
                 </AuctionCard>

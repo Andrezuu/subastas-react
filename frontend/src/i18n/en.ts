@@ -34,8 +34,16 @@ export const enJSON = {
     title: "Latest Auctions",
     noAuctions: "No auctions available",
     basePrice: "Base Price: ",
+    currentBid: "Current Bid: ",
     pastAuction: "Finished",
     futureAuction: "Upcoming",
     presentAuction: "Ongoing",
+  },
+  timer: {
+    title: "Time Remaining",
+    days: "Days",
+    hours: "Hours",
+    minutes: "Min",
+    seconds: "Sec",
   },
 };

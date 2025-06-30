@@ -1,5 +1,6 @@
 import { Card, CardMedia, Typography, Box } from "@mui/material";
 import type { ReactNode } from "react";
+import { Timer as BaseTimer } from "../../components/Timer";
 
 interface ImageProps {
   src: string;
@@ -28,25 +29,39 @@ export const AuctionCard = ({ children }: { children: ReactNode }) => {
   );
 };
 
+const ImageContainer = ({ children }: { children: ReactNode }) => (
+  <Box sx={{ position: "relative" }}>{children}</Box>
+);
+
 const Image = ({ src, alt }: ImageProps) => {
-  return <CardMedia component="img" height="200" image={src} alt={alt} />;
-};
-const Footer = ({ children }: { children: ReactNode }) => {
-  return (
-    <Typography variant="body2" color="text.secondary">
-      {children}
-    </Typography>
-  );
+  return <CardMedia component="img" height="300" image={src} alt={alt} />;
 };
 
-const Description = ({ children }: { children: ReactNode }) => {
+const Timer = (props: TimerProps) => (
+  <Box
+    sx={{
+      position: "absolute",
+      bottom: 8,
+      left: "50%",
+      transform: "translateX(-50%)",
+      width: "auto",
+      zIndex: 1,
+      backgroundColor: "#f8f9fa",
+      borderRadius: "8px",
+      paddingX: "16px",
+      opacity: 0.9,
+    }}
+  >
+    <BaseTimer {...props} />
+  </Box>
+);
+
+const Footer = ({ children }: { children: ReactNode }) => {
   return (
     <Typography
       variant="body2"
       color="text.secondary"
-      sx={{
-        mb: 2,
-      }}
+      sx={{ textAlign: "center" }}
     >
       {children}
     </Typography>
@@ -55,78 +70,23 @@ const Description = ({ children }: { children: ReactNode }) => {
 
 const Title = ({ children }: { children: ReactNode }) => {
   return (
-    <Typography gutterBottom variant="h5" component="div">
+    <Typography
+      gutterBottom
+      variant="h6"
+      component="div"
+      sx={{
+        textAlign: "center",
+        fontWeight: "bold",
+        mt: 1,
+      }}
+    >
       {children}
     </Typography>
   );
 };
 
-const Timer = ({
-  days,
-  hours,
-  minutes,
-  seconds,
-  expired = false,
-}: TimerProps & { expired?: boolean }) => {
-  if (expired) {
-    return (
-      <Box sx={{ textAlign: "center", py: 2, backgroundColor: "#ffebee" }}>
-        <Typography variant="body1" color="error" fontWeight="bold">
-          Subasta Finalizada
-        </Typography>
-      </Box>
-    );
-  }
-
-  return (
-    <Box sx={{ textAlign: "center", py: 2, backgroundColor: "#f8f9fa" }}>
-      <Typography
-        variant="caption"
-        color="text.secondary"
-        sx={{ mb: 1, display: "block" }}
-      >
-        Tiempo restante:
-      </Typography>
-      <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
-        <Box sx={{ textAlign: "center" }}>
-          <Typography variant="h6" fontWeight="bold" color="primary">
-            {days.toString().padStart(2, "0")}
-          </Typography>
-          <Typography variant="caption" color="text.secondary">
-            Días
-          </Typography>
-        </Box>
-        <Box sx={{ textAlign: "center" }}>
-          <Typography variant="h6" fontWeight="bold" color="primary">
-            {hours.toString().padStart(2, "0")}
-          </Typography>
-          <Typography variant="caption" color="text.secondary">
-            Horas
-          </Typography>
-        </Box>
-        <Box sx={{ textAlign: "center" }}>
-          <Typography variant="h6" fontWeight="bold" color="primary">
-            {minutes.toString().padStart(2, "0")}
-          </Typography>
-          <Typography variant="caption" color="text.secondary">
-            Min
-          </Typography>
-        </Box>
-        <Box sx={{ textAlign: "center" }}>
-          <Typography variant="h6" fontWeight="bold" color="primary">
-            {seconds.toString().padStart(2, "0")}
-          </Typography>
-          <Typography variant="caption" color="text.secondary">
-            Seg
-          </Typography>
-        </Box>
-      </Box>
-    </Box>
-  );
-};
-
+AuctionCard.ImageContainer = ImageContainer;
+AuctionCard.Timer = Timer;
 AuctionCard.Footer = Footer;
 AuctionCard.Title = Title;
 AuctionCard.Image = Image;
-AuctionCard.Timer = Timer;
-AuctionCard.Description = Description;

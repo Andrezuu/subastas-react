@@ -32,8 +32,16 @@ export const esJSON = {
     title: "Últimas Subastas",
     noAuctions: "No hay subastas disponibles",
     basePrice: "Precio Base: ",
+    currentBid: "Oferta Actual: ",
     pastAuction: "Finalizada",
     futureAuction: "Próximamente",
     presentAuction: "En curso",
+  },
+  timer: {
+    title: "Tiempo restante",
+    days: "Días",
+    hours: "Horas",
+    minutes: "Min",
+    seconds: "Seg",
   },
 };
