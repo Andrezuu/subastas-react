@@ -1,11 +1,18 @@
-import { WebSocketServer } from "ws";
+import { Server } from "socket.io";
+import http from "http";
 import fs from "fs";
 import path from "path";
 import { IAuction } from "../frontend/src/interfaces/IAuction";
 import { auctionTypes } from "./constants/auctionTypes";
 
 const PORT = 3001;
-const wss = new WebSocketServer({ port: PORT });
+const server = http.createServer();
+const io = new Server(server, {
+  cors: {
+    origin: "*", 
+    methods: ["GET", "POST"],
+  },
+});
 
 const getAuctions = () => {
   try {
@@ -51,16 +58,6 @@ const calculateTimeLeft = (endTime: string) => {
   };
 };
 
-const broadcast = (data: Object) => {
-  const message = JSON.stringify(data);
-  console.log("[INFO]", message);
-  wss.clients.forEach((client) => {
-    if (client.readyState === 1) {
-      client.send(message);
-    }
-  });
-};
-
 const processAuctions = () => {
   const auctions = getAuctions().map((auction: IAuction) => {
     const calculatedType = getAuctionType(
@@ -85,45 +82,41 @@ const processAuctions = () => {
 
 let timerInterval: NodeJS.Timeout;
 
-wss.on("connection", (ws) => {
-  console.log("Cliente conectado");
+io.on("connection", (socket) => {
+  console.log("Cliente conectado:", socket.id);
 
   const { timers } = processAuctions();
 
-  ws.send(
-    JSON.stringify({
-      type: "INITIAL_DATA",
-      data: {
-        timers,
-      },
-    })
-  );
+  socket.emit("INITIAL_DATA", { timers });
 
-  ws.on("close", () => {
-    console.log("Cliente desconectado");
+  socket.on("disconnect", () => {
+    console.log("Cliente desconectado:", socket.id);
   });
 
-  ws.on("error", (error) => {
-    console.error("Error en WebSocket:", error);
+  socket.on("error", (error) => {
+    console.error("Error en Socket.IO:", error);
   });
 });
 
 timerInterval = setInterval(() => {
-  if (wss.clients.size > 0) {
+  if (io.engine.clientsCount > 0) {
     const { timers } = processAuctions();
-
-    broadcast({
-      type: "UPDATE_DATA",
-      data: {
-        timers,
-      },
-    });
+    io.emit("UPDATE_DATA", { timers });
   }
 }, 1000);
 
-console.log(`WebSocket server escuchando en ws://localhost:${PORT}`);
+server.listen(PORT, () => {
+  console.log(`Socket.IO server escuchando en http://localhost:${PORT}`);
+});
 
 process.on("SIGTERM", () => {
+  console.log("Cerrando servidor...");
   clearInterval(timerInterval);
-  wss.close();
+  io.close(() => {
+    console.log("Servidor Socket.IO cerrado.");
+    server.close(() => {
+      console.log("Servidor HTTP cerrado.");
+      process.exit(0);
+    });
+  });
 });
