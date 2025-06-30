@@ -8,12 +8,13 @@ interface IAuctionStore {
   isLoading: boolean;
   error: string | null;
   fetchAuctions: () => void;
+  getAuctionById: (id: string) => IAuction | undefined;
   createAuction: (auction: IAuction) => void;
 }
 
 export const useAuctionStore = create<IAuctionStore>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       auctions: [],
       isLoading: false,
       error: null,
@@ -28,6 +29,10 @@ export const useAuctionStore = create<IAuctionStore>()(
         } finally {
           set({ isLoading: false });
         }
+      },
+      getAuctionById: (id: string) => {
+        const { auctions } = get();
+        return auctions.find((auction) => auction.id.toString() === id);
       },
       createAuction: async (auction: IAuction) => {
         try {

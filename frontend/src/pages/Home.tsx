@@ -10,7 +10,7 @@ function Home() {
   const auctions = useAuctionStore((state) => state.auctions);
   const fetchAuctions = useAuctionStore((state) => state.fetchAuctions);
   const { t } = useTranslation();
-  const { timers } = useAppWebSocket();
+  const { timers, currentBids } = useAppWebSocket();
 
   useEffect(() => {
     fetchAuctions();
@@ -37,10 +37,11 @@ function Home() {
         <Grid container spacing={3} justifyContent="center">
           {auctions.map((auction) => {
             const timer = timers[auction.id];
+            const currentBid = currentBids[auction.id];
 
             return (
               <Grid sx={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={auction.id}>
-                <AuctionCard>
+                <AuctionCard auctionId={auction.id}>
                   <AuctionCard.ImageContainer>
                     <AuctionCard.Image
                       src={auction.img || "https://picsum.photos/300/200"}
@@ -67,9 +68,13 @@ function Home() {
                         if (!timer) return null;
                         switch (timer.type) {
                           case auctionTypes.PRESENT:
-                            return `${t(
-                              "home.currentBid"
-                            )} ${auction.basePrice.toFixed(2)}`;
+                            const displayPrice = currentBid
+                              ? currentBid.amount
+                              : auction.basePrice;
+                            const priceLabel = currentBid
+                              ? t("home.currentBid")
+                              : t("home.basePrice");
+                            return `${priceLabel} $${displayPrice.toFixed(2)}`;
                           case auctionTypes.PAST:
                             return t("home.pastAuction");
                           case auctionTypes.FUTURE:

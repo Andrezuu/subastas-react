@@ -1,105 +1,2893 @@
 {
-    "users": [
-        {
-            "id": "1",
-            "username": "admin",
-            "role": "admin",
-            "avatar": "https://picsum.photos/200"
-        },
-        {
-            "id": "2",
-            "username": "user",
-            "avatar": "https://picsum.photos/200",
-            "role": "user"
-        },
-        {
-            "id": "1751229197932",
-            "username": "prueba",
-            "role": "user",
-            "avatar": "https://picsum.photos/200"
-        },
-        {
-            "id": "1751229469576",
-            "username": "cfcsda",
-            "role": "admin",
-            "avatar": "https://picsum.photos/200"
-        },
-        {
-            "id": "1751229516590",
-            "username": "fffffffffffffff",
-            "role": "user",
-            "avatar": "https://picsum.photos/200"
-        },
-        {
-            "id": "1751229583628",
-            "username": "scdscdacaaaaaa",
-            "role": "admin",
-            "avatar": "https://picsum.photos/200"
-        },
-        {
-            "id": "1751229747919",
-            "username": "ffff",
-            "role": "user",
-            "avatar": "https://picsum.photos/200/300"
-        }
-    ],
-    "auctions": [
-        {
-            "id": 1,
-            "name": "Samsung Galaxy S23",
-            "basePrice": 800,
-            "description": "Latest ",
-            "img": "https://picsum.photos/300/200?random=1",
-            "startTime": "2025-06-29T10:00:00Z",
-            "endTime": "2025-06-30T18:30:00Z"
-        },
-        {
-            "id": 2,
-            "name": "Apple MacBook Pro",
-            "basePrice": 1200,
-            "description": "Powerful laptop with M2 chip, perfect for professionals",
-            "img": "https://picsum.photos/300/200?random=2",
-            "startTime": "2025-07-01T09:00:00Z",
-            "endTime": "2025-07-02T15:45:00Z"
-        },
-        {
-            "id": 3,
-            "name": "Sony WH-1000XM5",
-            "basePrice": 350,
-            "auctionDuration": 1800,
-            "description": "Premium noise-canceling wireless headphones",
-            "img": "https://picsum.photos/300/200?random=3",
-            "startTime": "2025-06-29T08:00:00Z",
-            "endTime": "2025-06-30T20:20:00Z"
-        },
-        {
-            "id": 4,
-            "name": "LG OLED 55\" TV",
-            "basePrice": 900,
-            "auctionDuration": 5400,
-            "description": "Ultra HD 4K OLED television with smart features",
-            "img": "https://picsum.photos/300/200?random=4",
-            "startTime": "2025-06-27T10:00:00Z",
-            "endTime": "2025-06-28T20:00:00Z"
-        },
-        {
-            "id": 5,
-            "name": "iPad Air 5th Gen",
-            "basePrice": 600,
-            "description": "Versatile tablet with Apple Pencil support",
-            "img": "https://picsum.photos/300/200?random=5",
-            "startTime": "2024-06-27T10:00:00Z",
-            "endTime": "2025-06-30T22:15:00Z"
-        },
-        {
-            "id": 6,
-            "name": "Nintendo Switch OLED",
-            "basePrice": 320,
-            "auctionDuration": 2700,
-            "description": "Gaming console with vibrant OLED display",
-            "img": "https://picsum.photos/300/200?random=6",
-            "startTime": "2024-06-27T10:00:00Z",
-            "endTime": "2026-07-01T16:30:00Z"
-        }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "role": "admin",
+      "avatar": "https://picsum.photos/200"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "avatar": "https://picsum.photos/200",
+      "role": "user"
+    },
+    {
+      "id": "1751229197932",
+      "username": "prueba",
+      "role": "user",
+      "avatar": "https://picsum.photos/200"
+    },
+    {
+      "id": "1751229469576",
+      "username": "cfcsda",
+      "role": "admin",
+      "avatar": "https://picsum.photos/200"
+    },
+    {
+      "id": "1751229516590",
+      "username": "fffffffffffffff",
+      "role": "user",
+      "avatar": "https://picsum.photos/200"
+    },
+    {
+      "id": "1751229583628",
+      "username": "scdscdacaaaaaa",
+      "role": "admin",
+      "avatar": "https://picsum.photos/200"
+    },
+    {
+      "id": "1751229747919",
+      "username": "ffff",
+      "role": "user",
+      "avatar": "https://picsum.photos/200/300"
+    }
+  ],
+  "auctions": [
+    {
+      "id": "1",
+      "name": "Samsung Galaxy S23",
+      "basePrice": 800,
+      "description": "Latest ",
+      "img": "https://picsum.photos/300/200?random=1",
+      "startTime": "2025-06-29T10:00:00Z",
+      "endTime": "2025-06-30T18:30:00Z"
+    },
+    {
+      "id": "2",
+      "name": "Apple MacBook Pro",
+      "basePrice": 1200,
+      "description": "Powerful laptop with M2 chip, perfect for professionals",
+      "img": "https://picsum.photos/300/200?random=2",
+      "startTime": "2025-07-01T09:00:00Z",
+      "endTime": "2025-07-02T15:45:00Z"
+    },
+    {
+      "id": "3",
+      "name": "Sony WH-1000XM5",
+      "basePrice": 350,
+      "auctionDuration": 1800,
+      "description": "Premium noise-canceling wireless headphones",
+      "img": "https://picsum.photos/300/200?random=3",
+      "startTime": "2025-06-29T08:00:00Z",
+      "endTime": "2025-06-30T20:20:00Z"
+    },
+    {
+      "id": "4",
+      "name": "LG OLED 55\" TV",
+      "basePrice": 900,
+      "auctionDuration": 5400,
+      "description": "Ultra HD 4K OLED television with smart features",
+      "img": "https://picsum.photos/300/200?random=4",
+      "startTime": "2025-06-27T10:00:00Z",
+      "endTime": "2025-06-28T20:00:00Z"
+    },
+    {
+      "id": "5",
+      "name": "iPad Air 5th Gen",
+      "basePrice": 600,
+      "description": "Versatile tablet with Apple Pencil support",
+      "img": "https://picsum.photos/300/200?random=5",
+      "startTime": "2024-06-27T10:00:00Z",
+      "endTime": "2025-06-30T22:15:00Z"
+    },
+    {
+      "id": "6",
+      "name": "Nintendo Switch OLED",
+      "basePrice": 320,
+      "auctionDuration": 2700,
+      "description": "Gaming console with vibrant OLED display",
+      "img": "https://picsum.photos/300/200?random=6",
+      "startTime": "2024-06-27T10:00:00Z",
+      "endTime": "2026-07-01T16:30:00Z"
+    }
+  ],
+  "bids": [
+    {
+      "id": "1ef3",
+      "auctionId": "1",
+      "amount": 803,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:30:50.380Z"
+    },
+    {
+      "id": "abc2",
+      "auctionId": "1",
+      "amount": 803,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:30:50.380Z"
+    },
+    {
+      "id": "9a87",
+      "auctionId": "1",
+      "amount": 804,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:32:28.368Z"
+    },
+    {
+      "id": "c412",
+      "auctionId": "1",
+      "amount": 804,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:32:28.368Z"
+    },
+    {
+      "id": "1751254492609",
+      "auctionId": "1",
+      "amount": 805,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:34:52.609Z"
+    },
+    {
+      "id": "0fa1",
+      "auctionId": "1",
+      "amount": 805,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:34:52.609Z"
+    },
+    {
+      "id": "1751254592675",
+      "auctionId": "1",
+      "amount": 806,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:36:32.676Z"
+    },
+    {
+      "id": "d589",
+      "auctionId": "1",
+      "amount": 806,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:36:32.675Z"
+    },
+    {
+      "id": "2738",
+      "auctionId": "1",
+      "amount": 807,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:39:04.988Z"
+    },
+    {
+      "id": "c9ab",
+      "auctionId": "1",
+      "amount": 808,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:39:23.894Z"
+    },
+    {
+      "id": "20ed",
+      "auctionId": "1",
+      "amount": 809,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:40:06.417Z"
+    },
+    {
+      "id": "4ca6",
+      "auctionId": "1",
+      "amount": 810,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:40:48.994Z"
+    },
+    {
+      "id": "0b24",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:42:08.944Z"
+    },
+    {
+      "id": "f508",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:42:18.743Z"
+    },
+    {
+      "id": "9be5",
+      "auctionId": "1",
+      "amount": 800,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:43:46.466Z"
+    },
+    {
+      "id": "ce95",
+      "auctionId": "1",
+      "amount": 800,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:43:46.468Z"
+    },
+    {
+      "id": "c0a0",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:53:56.548Z"
+    },
+    {
+      "id": "e8d1",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:53:57.527Z"
+    },
+    {
+      "id": "ec10",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:54:11.254Z"
+    },
+    {
+      "id": "eed1",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:54:11.494Z"
+    },
+    {
+      "id": "250e",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:54:12.058Z"
+    },
+    {
+      "id": "65f6",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:54:32.600Z"
+    },
+    {
+      "id": "8883",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:54:33.814Z"
+    },
+    {
+      "id": "d6df",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:54:33.837Z"
+    },
+    {
+      "id": "2fe1",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:54:37.577Z"
+    },
+    {
+      "id": "466d",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:54:44.274Z"
+    },
+    {
+      "id": "880b",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:54:59.084Z"
+    },
+    {
+      "id": "7934",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:55:02.618Z"
+    },
+    {
+      "id": "377a",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:55:41.839Z"
+    },
+    {
+      "id": "2271",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:55:41.844Z"
+    },
+    {
+      "id": "92d3",
+      "auctionId": "3",
+      "amount": 350,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:55:46.841Z"
+    },
+    {
+      "id": "2d40",
+      "auctionId": "3",
+      "amount": 350,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:55:46.842Z"
+    },
+    {
+      "id": "065d",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:55:57.328Z"
+    },
+    {
+      "id": "a3c5",
+      "auctionId": "3",
+      "amount": 350,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:55:57.328Z"
+    },
+    {
+      "id": "60ab",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:55:58.595Z"
+    },
+    {
+      "id": "57bd",
+      "auctionId": "3",
+      "amount": 350,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:55:58.596Z"
+    },
+    {
+      "id": "33c7",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:56:02.554Z"
+    },
+    {
+      "id": "4009",
+      "auctionId": "3",
+      "amount": 350,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:56:02.554Z"
+    },
+    {
+      "id": "e60e",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:56:03.782Z"
+    },
+    {
+      "id": "2727",
+      "auctionId": "3",
+      "amount": 350,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:56:03.783Z"
+    },
+    {
+      "id": "116b",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:56:03.791Z"
+    },
+    {
+      "id": "6bb1",
+      "auctionId": "3",
+      "amount": 350,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:56:03.792Z"
+    },
+    {
+      "id": "489e",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:58:06.079Z"
+    },
+    {
+      "id": "b327",
+      "auctionId": "3",
+      "amount": 350,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:58:06.080Z"
+    },
+    {
+      "id": "1de3",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:58:08.473Z"
+    },
+    {
+      "id": "5d67",
+      "auctionId": "3",
+      "amount": 350,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:58:08.474Z"
+    },
+    {
+      "id": "3993",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:58:08.476Z"
+    },
+    {
+      "id": "45fc",
+      "auctionId": "3",
+      "amount": 350,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:58:08.477Z"
+    },
+    {
+      "id": "1ad0",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:58:28.603Z"
+    },
+    {
+      "id": "0c00",
+      "auctionId": "3",
+      "amount": 350,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:58:28.604Z"
+    },
+    {
+      "id": "c1b4",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:58:40.797Z"
+    },
+    {
+      "id": "b199",
+      "auctionId": "3",
+      "amount": 350,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:58:40.798Z"
+    },
+    {
+      "id": "f4ce",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:58:40.806Z"
+    },
+    {
+      "id": "7342",
+      "auctionId": "3",
+      "amount": 350,
+      "userId": "1",
+      "timestamp": "2025-06-30T03:58:40.807Z"
+    },
+    {
+      "id": "a686",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:19.558Z"
+    },
+    {
+      "id": "5ca8",
+      "auctionId": "3",
+      "amount": 350,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:19.559Z"
+    },
+    {
+      "id": "dd95",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:19.570Z"
+    },
+    {
+      "id": "8b7c",
+      "auctionId": "3",
+      "amount": 350,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:19.572Z"
+    },
+    {
+      "id": "b4df",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:19.587Z"
+    },
+    {
+      "id": "ee85",
+      "auctionId": "3",
+      "amount": 350,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:19.588Z"
+    },
+    {
+      "id": "6d22",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:19.597Z"
+    },
+    {
+      "id": "6384",
+      "auctionId": "3",
+      "amount": 350,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:19.599Z"
+    },
+    {
+      "id": "54e0",
+      "auctionId": "3",
+      "amount": 351,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:49.712Z"
+    },
+    {
+      "id": "bc4a",
+      "auctionId": "3",
+      "amount": 351,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:49.713Z"
+    },
+    {
+      "id": "8677",
+      "auctionId": "3",
+      "amount": 351,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:49.713Z"
+    },
+    {
+      "id": "2b6d",
+      "auctionId": "3",
+      "amount": 351,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:49.747Z"
+    },
+    {
+      "id": "e7ef",
+      "auctionId": "3",
+      "amount": 351,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:49.747Z"
+    },
+    {
+      "id": "ec84",
+      "auctionId": "3",
+      "amount": 351,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:49.747Z"
+    },
+    {
+      "id": "46b5",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:58.152Z"
+    },
+    {
+      "id": "27f9",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:58.153Z"
+    },
+    {
+      "id": "5db6",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:58.155Z"
+    },
+    {
+      "id": "f5e0",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:58.187Z"
+    },
+    {
+      "id": "4c04",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:58.188Z"
+    },
+    {
+      "id": "efb5",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:03:58.189Z"
+    },
+    {
+      "id": "40a4",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:09:57.176Z"
+    },
+    {
+      "id": "e06a",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:09:57.177Z"
+    },
+    {
+      "id": "cf5d",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:09:59.212Z"
+    },
+    {
+      "id": "7860",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:09:59.213Z"
+    },
+    {
+      "id": "c88a",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:09:59.216Z"
+    },
+    {
+      "id": "5ebf",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:09:59.216Z"
+    },
+    {
+      "id": "80bc",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:09:59.234Z"
+    },
+    {
+      "id": "bc1f",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:09:59.235Z"
+    },
+    {
+      "id": "8fb3",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:10:02.661Z"
+    },
+    {
+      "id": "1fc3",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:10:02.662Z"
+    },
+    {
+      "id": "d7e9",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:10:06.223Z"
+    },
+    {
+      "id": "2c3f",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:10:06.224Z"
+    },
+    {
+      "id": "b4ee",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:10:06.225Z"
+    },
+    {
+      "id": "399f",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:10:06.226Z"
+    },
+    {
+      "id": "ef5a",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:10:06.240Z"
+    },
+    {
+      "id": "f7da",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:10:06.240Z"
+    },
+    {
+      "id": "a213",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:10:07.641Z"
+    },
+    {
+      "id": "050e",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:10:07.641Z"
+    },
+    {
+      "id": "6a12",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:10:08.081Z"
+    },
+    {
+      "id": "82cc",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:10:08.082Z"
+    },
+    {
+      "id": "33fa",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:10:08.094Z"
+    },
+    {
+      "id": "2df8",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:10:08.094Z"
+    },
+    {
+      "id": "d7a8",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:10:08.096Z"
+    },
+    {
+      "id": "6825",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:10:08.096Z"
+    },
+    {
+      "id": "cd0e",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:27.481Z"
+    },
+    {
+      "id": "534a",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:27.482Z"
+    },
+    {
+      "id": "7cd2",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:28.772Z"
+    },
+    {
+      "id": "aa92",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:28.773Z"
+    },
+    {
+      "id": "4764",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:28.775Z"
+    },
+    {
+      "id": "cd28",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:28.775Z"
+    },
+    {
+      "id": "7f57",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:28.794Z"
+    },
+    {
+      "id": "940c",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:28.795Z"
+    },
+    {
+      "id": "990f",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:47.567Z"
+    },
+    {
+      "id": "4deb",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:47.567Z"
+    },
+    {
+      "id": "5e17",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:47.572Z"
+    },
+    {
+      "id": "523d",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:47.571Z"
+    },
+    {
+      "id": "8533",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:47.588Z"
+    },
+    {
+      "id": "23a9",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:47.589Z"
+    },
+    {
+      "id": "191a",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:52.562Z"
+    },
+    {
+      "id": "dcf9",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:52.562Z"
+    },
+    {
+      "id": "ac1e",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:52.563Z"
+    },
+    {
+      "id": "2fd8",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:52.564Z"
+    },
+    {
+      "id": "728d",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:52.578Z"
+    },
+    {
+      "id": "f9d9",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:11:52.579Z"
+    },
+    {
+      "id": "9027",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:12:01.562Z"
+    },
+    {
+      "id": "63fd",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:12:01.564Z"
+    },
+    {
+      "id": "a8d4",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:12:01.567Z"
+    },
+    {
+      "id": "28d1",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:12:01.563Z"
+    },
+    {
+      "id": "90c5",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:12:01.565Z"
+    },
+    {
+      "id": "4c25",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:12:01.566Z"
+    },
+    {
+      "id": "b6aa",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:12:27.551Z"
+    },
+    {
+      "id": "a22b",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:12:27.551Z"
+    },
+    {
+      "id": "e0a7",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:12:27.565Z"
+    },
+    {
+      "id": "6f27",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:12:27.565Z"
+    },
+    {
+      "id": "d19e",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:12:27.567Z"
+    },
+    {
+      "id": "4468",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:12:27.568Z"
+    },
+    {
+      "id": "587e",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:12:30.562Z"
+    },
+    {
+      "id": "1f44",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:12:30.563Z"
+    },
+    {
+      "id": "1827",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:12:30.565Z"
+    },
+    {
+      "id": "78bf",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:12:30.565Z"
+    },
+    {
+      "id": "35a7",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:12:30.600Z"
+    },
+    {
+      "id": "d005",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:12:30.600Z"
+    },
+    {
+      "id": "ef0e",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:20.011Z"
+    },
+    {
+      "id": "5129",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:20.011Z"
+    },
+    {
+      "id": "844a",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:21.614Z"
+    },
+    {
+      "id": "b1f7",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:21.615Z"
+    },
+    {
+      "id": "83c8",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:21.628Z"
+    },
+    {
+      "id": "5185",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:21.628Z"
+    },
+    {
+      "id": "6fa6",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:21.629Z"
+    },
+    {
+      "id": "ceaf",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:21.629Z"
+    },
+    {
+      "id": "a8ff",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:22.661Z"
+    },
+    {
+      "id": "3b7b",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:22.661Z"
+    },
+    {
+      "id": "46b6",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:23.947Z"
+    },
+    {
+      "id": "1a95",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:23.947Z"
+    },
+    {
+      "id": "416a",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:23.959Z"
+    },
+    {
+      "id": "23bf",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:23.960Z"
+    },
+    {
+      "id": "e8ff",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:23.960Z"
+    },
+    {
+      "id": "a133",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:23.961Z"
+    },
+    {
+      "id": "3615",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:31.613Z"
+    },
+    {
+      "id": "9cef",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:31.613Z"
+    },
+    {
+      "id": "ce1c",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:32.493Z"
+    },
+    {
+      "id": "988c",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:32.494Z"
+    },
+    {
+      "id": "2d40",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:32.495Z"
+    },
+    {
+      "id": "25d8",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:32.496Z"
+    },
+    {
+      "id": "176c",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:32.509Z"
+    },
+    {
+      "id": "b80a",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:32.510Z"
+    },
+    {
+      "id": "c9d2",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:36.513Z"
+    },
+    {
+      "id": "bafe",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:36.513Z"
+    },
+    {
+      "id": "54f6",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:36.920Z"
+    },
+    {
+      "id": "8e51",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:36.923Z"
+    },
+    {
+      "id": "0cd3",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:36.924Z"
+    },
+    {
+      "id": "3255",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:36.920Z"
+    },
+    {
+      "id": "add2",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:36.926Z"
+    },
+    {
+      "id": "a0ac",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:14:36.925Z"
+    },
+    {
+      "id": "951c",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:32:02.008Z"
+    },
+    {
+      "id": "bf66",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:32:02.008Z"
+    },
+    {
+      "id": "ed9a",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:33:06.532Z"
+    },
+    {
+      "id": "e56d",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:33:06.533Z"
+    },
+    {
+      "id": "9baf",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:33:06.542Z"
+    },
+    {
+      "id": "fd48",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:33:06.542Z"
+    },
+    {
+      "id": "b15a",
+      "auctionId": "1",
+      "amount": 811,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:33:06.544Z"
+    },
+    {
+      "id": "56b4",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:33:06.544Z"
+    },
+    {
+      "id": "327f",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:33:10.686Z"
+    },
+    {
+      "id": "5811",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:33:10.687Z"
+    },
+    {
+      "id": "e4b0",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:33:10.688Z"
+    },
+    {
+      "id": "240b",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:33:10.726Z"
+    },
+    {
+      "id": "ace6",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:33:10.727Z"
+    },
+    {
+      "id": "2731",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:33:10.728Z"
+    },
+    {
+      "id": "0cf2",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:33:16.864Z"
+    },
+    {
+      "id": "61fb",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:33:16.864Z"
+    },
+    {
+      "id": "da2f",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:36:20.567Z"
+    },
+    {
+      "id": "7313",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:36:20.565Z"
+    },
+    {
+      "id": "8854",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:36:20.568Z"
+    },
+    {
+      "id": "2b99",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:36:20.570Z"
+    },
+    {
+      "id": "dec1",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:36:20.612Z"
+    },
+    {
+      "id": "62f2",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:36:20.613Z"
+    },
+    {
+      "id": "1dca",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:36:22.885Z"
+    },
+    {
+      "id": "6d91",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:36:22.886Z"
+    },
+    {
+      "id": "fa19",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:36:42.163Z"
+    },
+    {
+      "id": "10c5",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:36:42.164Z"
+    },
+    {
+      "id": "947a",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:36:42.167Z"
+    },
+    {
+      "id": "990b",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:36:42.167Z"
+    },
+    {
+      "id": "64ae",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:36:42.189Z"
+    },
+    {
+      "id": "9236",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:36:42.189Z"
+    },
+    {
+      "id": "29f0",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:40:26.202Z"
+    },
+    {
+      "id": "0291",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:40:26.203Z"
+    },
+    {
+      "id": "64e8",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:40:27.076Z"
+    },
+    {
+      "id": "da1d",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:40:27.077Z"
+    },
+    {
+      "id": "bdb1",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:40:27.079Z"
+    },
+    {
+      "id": "1c3a",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:40:27.080Z"
+    },
+    {
+      "id": "d681",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:40:27.101Z"
+    },
+    {
+      "id": "cce2",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:40:27.101Z"
+    },
+    {
+      "id": "27f3",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:40:36.927Z"
+    },
+    {
+      "id": "5310",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:40:36.928Z"
+    },
+    {
+      "id": "913a",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:40:37.569Z"
+    },
+    {
+      "id": "17c1",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:40:37.569Z"
+    },
+    {
+      "id": "6edc",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:40:37.575Z"
+    },
+    {
+      "id": "1caf",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:40:37.576Z"
+    },
+    {
+      "id": "3efc",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:40:37.579Z"
+    },
+    {
+      "id": "04b0",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:40:37.579Z"
+    },
+    {
+      "id": "7faa",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:31.882Z"
+    },
+    {
+      "id": "4cc8",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:31.883Z"
+    },
+    {
+      "id": "b48d",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:32.356Z"
+    },
+    {
+      "id": "46cb",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:32.356Z"
+    },
+    {
+      "id": "1f16",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:32.358Z"
+    },
+    {
+      "id": "0a56",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:32.358Z"
+    },
+    {
+      "id": "5549",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:32.383Z"
+    },
+    {
+      "id": "5b18",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:32.383Z"
+    },
+    {
+      "id": "53fb",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:48.964Z"
+    },
+    {
+      "id": "3afa",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:48.964Z"
+    },
+    {
+      "id": "873b",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:49.612Z"
+    },
+    {
+      "id": "cd1a",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:49.612Z"
+    },
+    {
+      "id": "9eb5",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:49.614Z"
+    },
+    {
+      "id": "0e7c",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:49.615Z"
+    },
+    {
+      "id": "bc43",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:49.625Z"
+    },
+    {
+      "id": "3f03",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:49.626Z"
+    },
+    {
+      "id": "84dd",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:57.786Z"
+    },
+    {
+      "id": "4c9f",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:57.787Z"
+    },
+    {
+      "id": "6004",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:58.449Z"
+    },
+    {
+      "id": "9013",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:58.450Z"
+    },
+    {
+      "id": "2944",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:58.459Z"
+    },
+    {
+      "id": "a9f4",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:58.459Z"
+    },
+    {
+      "id": "fcbc",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:58.461Z"
+    },
+    {
+      "id": "625c",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:41:58.462Z"
+    },
+    {
+      "id": "1872",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:42:53.359Z"
+    },
+    {
+      "id": "a792",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:42:53.360Z"
+    },
+    {
+      "id": "37f5",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:42:54.401Z"
+    },
+    {
+      "id": "4c76",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:42:54.402Z"
+    },
+    {
+      "id": "3eb5",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:42:54.419Z"
+    },
+    {
+      "id": "e8cb",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:42:54.420Z"
+    },
+    {
+      "id": "24da",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:42:54.421Z"
+    },
+    {
+      "id": "1cfd",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:42:54.421Z"
+    },
+    {
+      "id": "5cb3",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:17.124Z"
+    },
+    {
+      "id": "2a2e",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:17.124Z"
+    },
+    {
+      "id": "fac3",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:17.758Z"
+    },
+    {
+      "id": "9bc2",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:17.758Z"
+    },
+    {
+      "id": "41b1",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:17.777Z"
+    },
+    {
+      "id": "777a",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:17.777Z"
+    },
+    {
+      "id": "3f65",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:17.779Z"
+    },
+    {
+      "id": "5034",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:17.779Z"
+    },
+    {
+      "id": "3346",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:35.318Z"
+    },
+    {
+      "id": "a197",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:35.319Z"
+    },
+    {
+      "id": "8c20",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:36.034Z"
+    },
+    {
+      "id": "6c50",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:36.035Z"
+    },
+    {
+      "id": "3556",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:36.054Z"
+    },
+    {
+      "id": "fe96",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:36.055Z"
+    },
+    {
+      "id": "ea22",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:36.058Z"
+    },
+    {
+      "id": "9ca3",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:36.058Z"
+    },
+    {
+      "id": "3c68",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:52.145Z"
+    },
+    {
+      "id": "e8c7",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:52.145Z"
+    },
+    {
+      "id": "100c",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:52.817Z"
+    },
+    {
+      "id": "b1a3",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:52.817Z"
+    },
+    {
+      "id": "853a",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:52.829Z"
+    },
+    {
+      "id": "f060",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:52.830Z"
+    },
+    {
+      "id": "c701",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:52.830Z"
+    },
+    {
+      "id": "92dd",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:43:52.830Z"
+    },
+    {
+      "id": "bf7f",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:44:15.119Z"
+    },
+    {
+      "id": "5973",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:44:15.119Z"
+    },
+    {
+      "id": "1e70",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:44:15.819Z"
+    },
+    {
+      "id": "2d1b",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:44:15.819Z"
+    },
+    {
+      "id": "ab16",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:44:15.829Z"
+    },
+    {
+      "id": "b258",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:44:15.830Z"
+    },
+    {
+      "id": "8d66",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:44:15.831Z"
+    },
+    {
+      "id": "9a97",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:44:15.831Z"
+    },
+    {
+      "id": "52fb",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:44:37.344Z"
+    },
+    {
+      "id": "175b",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:44:37.344Z"
+    },
+    {
+      "id": "174d",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:44:38.022Z"
+    },
+    {
+      "id": "f418",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:44:38.023Z"
+    },
+    {
+      "id": "8e78",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:44:38.024Z"
+    },
+    {
+      "id": "0dd3",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:44:38.024Z"
+    },
+    {
+      "id": "a425",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:44:38.044Z"
+    },
+    {
+      "id": "0470",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:44:38.045Z"
+    },
+    {
+      "id": "5aa2",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:45:39.173Z"
+    },
+    {
+      "id": "76ab",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:45:39.173Z"
+    },
+    {
+      "id": "fb70",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:45:40.882Z"
+    },
+    {
+      "id": "1f3f",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:45:40.883Z"
+    },
+    {
+      "id": "4d1d",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:45:40.894Z"
+    },
+    {
+      "id": "29b7",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:45:40.895Z"
+    },
+    {
+      "id": "8f7c",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:45:40.896Z"
+    },
+    {
+      "id": "5a46",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:45:40.897Z"
+    },
+    {
+      "id": "89fd",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:46:31.768Z"
+    },
+    {
+      "id": "ddbb",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:46:31.768Z"
+    },
+    {
+      "id": "19f4",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:46:32.269Z"
+    },
+    {
+      "id": "5e10",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:46:32.270Z"
+    },
+    {
+      "id": "6789",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:46:32.272Z"
+    },
+    {
+      "id": "0805",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:46:32.273Z"
+    },
+    {
+      "id": "0251",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:46:32.295Z"
+    },
+    {
+      "id": "55d2",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:46:32.295Z"
+    },
+    {
+      "id": "e137",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:48:29.886Z"
+    },
+    {
+      "id": "b8ae",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:48:29.887Z"
+    },
+    {
+      "id": "507e",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:48:31.072Z"
+    },
+    {
+      "id": "ff4d",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:48:31.072Z"
+    },
+    {
+      "id": "05f5",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:48:32.821Z"
+    },
+    {
+      "id": "e4ab",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:48:32.821Z"
+    },
+    {
+      "id": "7225",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:49:09.656Z"
+    },
+    {
+      "id": "93df",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:49:09.657Z"
+    },
+    {
+      "id": "b17c",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:49:13.112Z"
+    },
+    {
+      "id": "18fe",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:49:13.112Z"
+    },
+    {
+      "id": "d756",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:49:13.836Z"
+    },
+    {
+      "id": "0019",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:49:13.836Z"
+    },
+    {
+      "id": "172c",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:52:00.981Z"
+    },
+    {
+      "id": "f51b",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:52:00.981Z"
+    },
+    {
+      "id": "88f8",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:52:01.783Z"
+    },
+    {
+      "id": "d735",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:52:01.784Z"
+    },
+    {
+      "id": "d0e8",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:52:01.786Z"
+    },
+    {
+      "id": "1ad5",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:52:01.786Z"
+    },
+    {
+      "id": "b18a",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:52:01.803Z"
+    },
+    {
+      "id": "5e4b",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:52:01.804Z"
+    },
+    {
+      "id": "1387",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:53:43.277Z"
+    },
+    {
+      "id": "c86c",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:53:43.278Z"
+    },
+    {
+      "id": "cf72",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:53:44.177Z"
+    },
+    {
+      "id": "17b3",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:53:44.178Z"
+    },
+    {
+      "id": "7d4d",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:53:44.193Z"
+    },
+    {
+      "id": "d34f",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:53:44.193Z"
+    },
+    {
+      "id": "fc23",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:53:44.194Z"
+    },
+    {
+      "id": "60d7",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:53:44.194Z"
+    },
+    {
+      "id": "0f18",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:55:24.722Z"
+    },
+    {
+      "id": "0aed",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:55:24.722Z"
+    },
+    {
+      "id": "826b",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:55:24.738Z"
+    },
+    {
+      "id": "c5b7",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:55:24.739Z"
+    },
+    {
+      "id": "b0fd",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:55:27.573Z"
+    },
+    {
+      "id": "4ab7",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:55:27.573Z"
+    },
+    {
+      "id": "22b3",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:55:27.574Z"
+    },
+    {
+      "id": "5dbf",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:55:27.575Z"
+    },
+    {
+      "id": "4909",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:55:29.833Z"
+    },
+    {
+      "id": "2bac",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:55:29.834Z"
+    },
+    {
+      "id": "42bb",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:55:29.836Z"
+    },
+    {
+      "id": "563c",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:55:29.836Z"
+    },
+    {
+      "id": "9eaf",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:14.487Z"
+    },
+    {
+      "id": "8485",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:14.488Z"
+    },
+    {
+      "id": "144f",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:14.538Z"
+    },
+    {
+      "id": "e755",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:14.538Z"
+    },
+    {
+      "id": "39e8",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:15.367Z"
+    },
+    {
+      "id": "5026",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:15.369Z"
+    },
+    {
+      "id": "8adc",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:37.964Z"
+    },
+    {
+      "id": "cc3f",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:37.965Z"
+    },
+    {
+      "id": "dbaa",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:38.583Z"
+    },
+    {
+      "id": "ac2d",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:38.583Z"
+    },
+    {
+      "id": "a443",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:41.094Z"
+    },
+    {
+      "id": "4289",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:41.094Z"
+    },
+    {
+      "id": "6f88",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:41.304Z"
+    },
+    {
+      "id": "57e5",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:41.304Z"
+    },
+    {
+      "id": "dd3b",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:43.794Z"
+    },
+    {
+      "id": "07fd",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:43.795Z"
+    },
+    {
+      "id": "ee42",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:49.907Z"
+    },
+    {
+      "id": "6b92",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:49.907Z"
+    },
+    {
+      "id": "0941",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:50.090Z"
+    },
+    {
+      "id": "1ded",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:50.090Z"
+    },
+    {
+      "id": "dbb4",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:50.398Z"
+    },
+    {
+      "id": "2ad7",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:50.399Z"
+    },
+    {
+      "id": "9f65",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:54.225Z"
+    },
+    {
+      "id": "f137",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:54.226Z"
+    },
+    {
+      "id": "9224",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:55.095Z"
+    },
+    {
+      "id": "cb02",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:55.096Z"
+    },
+    {
+      "id": "badc",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:56.347Z"
+    },
+    {
+      "id": "1200",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:56.347Z"
+    },
+    {
+      "id": "8316",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:59.920Z"
+    },
+    {
+      "id": "b514",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:57:59.921Z"
+    },
+    {
+      "id": "43b4",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:02.553Z"
+    },
+    {
+      "id": "906c",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:02.554Z"
+    },
+    {
+      "id": "516d",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:04.498Z"
+    },
+    {
+      "id": "690f",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:04.498Z"
+    },
+    {
+      "id": "34b8",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:05.886Z"
+    },
+    {
+      "id": "710b",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:05.886Z"
+    },
+    {
+      "id": "b4f8",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:12.988Z"
+    },
+    {
+      "id": "df5e",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:12.989Z"
+    },
+    {
+      "id": "91ad",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:15.538Z"
+    },
+    {
+      "id": "2248",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:15.538Z"
+    },
+    {
+      "id": "13ad",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:16.643Z"
+    },
+    {
+      "id": "1598",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:16.644Z"
+    },
+    {
+      "id": "a12d",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:18.364Z"
+    },
+    {
+      "id": "dacc",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:18.365Z"
+    },
+    {
+      "id": "c8e8",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:21.788Z"
+    },
+    {
+      "id": "b961",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:21.789Z"
+    },
+    {
+      "id": "2dbe",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:23.623Z"
+    },
+    {
+      "id": "c106",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:23.624Z"
+    },
+    {
+      "id": "f5e6",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:26.567Z"
+    },
+    {
+      "id": "3b8d",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:26.568Z"
+    },
+    {
+      "id": "13a7",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:28.715Z"
+    },
+    {
+      "id": "9db1",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:28.715Z"
+    },
+    {
+      "id": "c2e0",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:31.150Z"
+    },
+    {
+      "id": "a40c",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:31.151Z"
+    },
+    {
+      "id": "cdfd",
+      "auctionId": "1",
+      "amount": 1111111,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:32.186Z"
+    },
+    {
+      "id": "bcd6",
+      "auctionId": "3",
+      "amount": 353,
+      "userId": "1",
+      "timestamp": "2025-06-30T04:58:32.186Z"
+    }
+  ]
 }

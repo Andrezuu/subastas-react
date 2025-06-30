@@ -1,4 +1,5 @@
 import { Card, CardMedia, Typography, Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import type { ReactNode } from "react";
 import { Timer as BaseTimer } from "../../components/Timer";
 
@@ -14,7 +15,18 @@ interface TimerProps {
   seconds: number;
 }
 
-export const AuctionCard = ({ children }: { children: ReactNode }) => {
+interface AuctionCardProps {
+  children: ReactNode;
+  auctionId: string;
+}
+
+export const AuctionCard = ({ children, auctionId }: AuctionCardProps) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`auction/${auctionId}`);
+  };
+
   return (
     <Card
       sx={{
@@ -22,7 +34,14 @@ export const AuctionCard = ({ children }: { children: ReactNode }) => {
         display: "flex",
         flexDirection: "column",
         width: 345,
+        cursor: "pointer",
+        transition: "transform 0.2s ease-in-out",
+        "&:hover": {
+          transform: "scale(1.02)",
+          boxShadow: 3,
+        },
       }}
+      onClick={handleClick}
     >
       {children}
     </Card>
