@@ -12,7 +12,7 @@ export const AppRoutes = () => {
   const { t } = useTranslation();
   return (
     <BrowserRouter>
-      <ErrorBoundary fallback={<ErrorComponent message={t("error.routes")} />}>
+      {/* <ErrorBoundary fallback={<ErrorComponent message={t("error.routes")} />}> */}
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
@@ -27,7 +27,7 @@ export const AppRoutes = () => {
             <Route path="" element={<Home />} />
           </Route>
         </Routes>
-      </ErrorBoundary>
+      {/* </ErrorBoundary> */}
     </BrowserRouter>
   );
 };

@@ -28,4 +28,12 @@ export const esJSON = {
     home: "Inicio",
     logout: "Cerrar Sesión",
   },
+  home: {
+    title: "Últimas Subastas",
+    noAuctions: "No hay subastas disponibles",
+    basePrice: "Precio Base: ",
+    pastAuction: "Finalizada",
+    futureAuction: "Próximamente",
+    presentAuction: "En curso",
+  },
 };

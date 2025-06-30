@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "dev": "cd frontend && npm run dev ",
+    "json": "cd frontend && npm run server",
+    "ws": "cd websocket && npm run dev"
+  },
+  "dependencies": {
+    "ws": "^8.18.3"
+  }
+}

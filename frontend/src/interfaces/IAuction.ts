@@ -4,6 +4,8 @@ export interface IAuction {
   basePrice: number;
   auctionDuration: number;
   description: string;
-  auctionType: string;
-  img: string;
+  img?: string;
+  startTime: string;
+  endTime: string;
+  type: string; 
 }

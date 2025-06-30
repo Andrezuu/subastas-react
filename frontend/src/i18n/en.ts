@@ -30,4 +30,12 @@ export const enJSON = {
   auction: {
     createError: "Error creating auction",
   },
+  home: {
+    title: "Latest Auctions",
+    noAuctions: "No auctions available",
+    basePrice: "Base Price: ",
+    pastAuction: "Finished",
+    futureAuction: "Upcoming",
+    presentAuction: "Ongoing",
+  },
 };
