@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
-import ProtectedRoutes from "../components/guards/ProtectedRoute";
+import ProtectedRoutes from "../guards/ProtectedRoutes";
 import { Layout } from "../layout/Layout";
 import ErrorComponent from "../components/ErrorComponent";
 import { useTranslation } from "react-i18next";

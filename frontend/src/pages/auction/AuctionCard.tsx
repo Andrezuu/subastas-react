@@ -34,7 +34,7 @@ const ImageContainer = ({ children }: { children: ReactNode }) => (
 );
 
 const Image = ({ src, alt }: ImageProps) => {
-  return <CardMedia component="img" height="300" image={src} alt={alt} />;
+  return <CardMedia component="img" height="350" image={src} alt={alt} />;
 };
 
 const Timer = (props: TimerProps) => (

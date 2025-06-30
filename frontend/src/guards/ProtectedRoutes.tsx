@@ -1,9 +1,9 @@
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
 import { useEffect, useRef, type ReactNode } from "react";
-import { useSnackbar } from "../../contexts/SnackbarContext";
+import { useSnackbar } from "../contexts/SnackbarContext";
 import { useTranslation } from "react-i18next";
-import { severities } from "../../constants/severities";
+import { severities } from "../constants/severities";
 
 const ProtectedRoutes = ({ children }: { children: ReactNode }) => {
   const { isAuth } = useAuth();

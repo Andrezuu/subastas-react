@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useWebSocket, { ReadyState } from "react-use-websocket";
+import { io, Socket } from "socket.io-client";
 
 interface TimerData {
   id: string;
@@ -9,47 +9,53 @@ interface TimerData {
     hours: number;
     minutes: number;
     seconds: number;
-    expired: boolean;
   };
 }
 
-export const useAppWebSocket = () => {
-  const WEBSOCKET_URL = "ws://localhost:3001";
-  const [timers, setTimers] = useState<Record<string, TimerData>>({});
+interface ServerToClientEvents {
+  INITIAL_DATA: (data: { timers: TimerData[] }) => void;
+  UPDATE_DATA: (data: { timers: TimerData[] }) => void;
+}
 
-  const { lastMessage, readyState } = useWebSocket(WEBSOCKET_URL, {
-    shouldReconnect: () => true,
-    reconnectInterval: 3000,
-  });
+export const useAppWebSocket = () => {
+  const WEBSOCKET_URL = "http://localhost:3001";
+  const [timers, setTimers] = useState<Record<string, TimerData>>({});
+  const [connectionStatus, setConnectionStatus] = useState("Connecting");
 
   useEffect(() => {
-    if (lastMessage !== null) {
-      try {
-        const message = JSON.parse(lastMessage.data);
+    const socket: Socket<ServerToClientEvents> = io(WEBSOCKET_URL, {
+      reconnection: true,
+      reconnectionDelay: 3000,
+    });
 
-        if (message.type === "INITIAL_DATA" || message.type === "UPDATE_DATA") {
-          const newTimers = message.data.timers.reduce(
-            (acc: Record<string, TimerData>, timer: TimerData) => {
-              acc[timer.id] = timer;
-              return acc;
-            },
-            {}
-          );
-          setTimers(newTimers);
-        }
-      } catch (error) {
-        console.error("Error parsing WebSocket message:", error);
-      }
-    }
-  }, [lastMessage]);
+    socket.on("connect", () => {
+      setConnectionStatus("Open");
+    });
 
-  const connectionStatus = {
-    [ReadyState.CONNECTING]: "Connecting",
-    [ReadyState.OPEN]: "Open",
-    [ReadyState.CLOSING]: "Closing",
-    [ReadyState.CLOSED]: "Closed",
-    [ReadyState.UNINSTANTIATED]: "Uninstantiated",
-  }[readyState];
+    socket.on("disconnect", () => {
+      setConnectionStatus("Closed");
+    });
+
+    const handleData = (data: { timers: TimerData[] }) => {
+      const newTimers = data.timers.reduce(
+        (acc: Record<string, TimerData>, timer) => {
+          acc[timer.id] = timer;
+          return acc;
+        },
+        {}
+      );
+      setTimers(newTimers);
+    };
+
+    socket.on("INITIAL_DATA", handleData);
+    socket.on("UPDATE_DATA", handleData);
+
+    return () => {
+      socket.off("INITIAL_DATA", handleData);
+      socket.off("UPDATE_DATA", handleData);
+      socket.disconnect();
+    };
+  }, []);
 
   return { timers, connectionStatus };
 };
