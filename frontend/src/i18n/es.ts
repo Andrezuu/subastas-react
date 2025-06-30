@@ -29,6 +29,20 @@ export const esJSON = {
     logout: "Cerrar Sesión",
     bidHistory: "Historial de Ofertas",
   },
+  auction: {
+    createError: "Error al crear la subasta",
+    edit: "Editar Subasta",
+    create: "Crear Subasta",
+    formName: "Nombre de la Subasta",
+    formDescription: "Descripción",
+    formBasePrice: "Precio Base",
+    formImage: "URL de la Imagen",
+    formStartDate: "Fecha de Inicio",
+    formEndDate: "Fecha de Fin",
+    formSubmit: "Enviar",
+    formUpdate: "Actualizar",
+    formCancel: "Cancelar",
+  },
   home: {
     title: "Últimas Subastas",
     noAuctions: "No hay subastas disponibles",
@@ -71,6 +85,7 @@ export const esJSON = {
     amount: "Monto",
     time: "Fecha y Hora",
     recentBids: "Ofertas Recientes",
-    startBidding: "Comienza a participar en subastas para ver tu historial aquí",
+    startBidding:
+      "Comienza a participar en subastas para ver tu historial aquí",
   },
 };

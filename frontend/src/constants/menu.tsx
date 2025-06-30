@@ -13,6 +13,11 @@ export const getMenu = (t: TFunction, logout: () => void, user: IUser) => [
     icon: <Timeline />,
     path: "/app/myBids",
   },
+  {
+    title: t("sidebar.results"),
+    icon: <Timeline />,
+    path: "/app/results",
+  },
   ...(user.role === "admin"
     ? [
         {

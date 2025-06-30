@@ -1,16 +1,23 @@
 import { useEffect } from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import { useAuctionStore } from "../store/useAuctionStore";
+import { useBidStore } from "../store/useBidStore"; // ✅ Importar BidStore
 import { useTranslation } from "react-i18next";
 import { AuctionCard } from "./auction/AuctionCard";
 import { useAppWebSocket } from "../hooks/useWebSocket";
 import { auctionTypes } from "../constants/auctionTypes";
+import { useUserStore } from "../store/useUserStore";
 
 function Home() {
   const auctions = useAuctionStore((state) => state.auctions);
   const fetchAuctions = useAuctionStore((state) => state.fetchAuctions);
+
+  // ✅ Usar BidStore en lugar de currentBids del WebSocket
+  const getCurrentBid = useBidStore((state) => state.getCurrentBid);
+  const getUserById = useUserStore((state) => state.getUserById);
+
   const { t } = useTranslation();
-  const { timers, currentBids } = useAppWebSocket();
+  const { timers } = useAppWebSocket(); // ✅ Solo timers del WebSocket
 
   useEffect(() => {
     fetchAuctions();
@@ -37,7 +44,8 @@ function Home() {
         <Grid container spacing={3} justifyContent="center">
           {auctions.map((auction) => {
             const timer = timers[auction.id];
-            const currentBid = currentBids[auction.id];
+            const currentBid = getCurrentBid(auction.id.toString());
+            const latestBidder = getUserById(currentBid?.userId || "");
 
             return (
               <Grid sx={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={auction.id}>
@@ -65,20 +73,32 @@ function Home() {
 
                     <AuctionCard.Footer>
                       {(() => {
+                        // ✅ Mejorar lógica con winner
                         if (!timer) return null;
+
                         switch (timer.type) {
                           case auctionTypes.PRESENT:
-                            const displayPrice = currentBid
-                              ? currentBid.amount
-                              : auction.basePrice;
-                            const priceLabel = currentBid
-                              ? t("home.currentBid")
-                              : t("home.basePrice");
-                            return `${priceLabel} $${displayPrice.toFixed(2)}`;
+                            if (currentBid) {
+                              return `${t(
+                                "home.currentBid"
+                              )} $${currentBid.amount.toFixed(2)}`;
+                            }
+                            return `${t(
+                              "home.basePrice"
+                            )} $${auction.basePrice.toFixed(2)}`;
+
                           case auctionTypes.PAST:
+                            // ✅ Para subastas pasadas, mostrar resultado
+                            if (latestBidder) {
+                              return `${t(
+                                "home.soldFor"
+                              )} $${currentBid!.amount.toFixed(2)}`;
+                            }
                             return t("home.pastAuction");
+
                           case auctionTypes.FUTURE:
                             return t("home.futureAuction");
+
                           default:
                             return null;
                         }

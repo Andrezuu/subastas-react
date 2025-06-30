@@ -6,23 +6,32 @@ import { useSnackbar } from "../contexts/SnackbarContext";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../contexts/AuthContext";
 import { useAuctionStore } from "../store/useAuctionStore";
+import { useBidStore } from "../store/useBidStore";
 import { severities } from "../constants/severities";
 import { createBid } from "../services/bidService";
+import { useUserStore } from "../store/useUserStore";
 
 interface BidFormValues {
   amount: string;
 }
 
+// ✅ useBidForm.ts corregido
 export const useBidForm = () => {
+  const getUserById = useUserStore((state) => state.getUserById);
   const { auctionId } = useParams<{ auctionId: string }>();
   const { user } = useAuth();
   const { t } = useTranslation();
-  const { placeBid, bidError, currentBids } = useAppWebSocket();
+  const { placeBid, bidError } = useAppWebSocket();
   const { showMessage } = useSnackbar();
   const getAuctionById = useAuctionStore((state) => state.getAuctionById);
+  const getCurrentBid = useBidStore((state) => state.getCurrentBid);
 
   const auction = getAuctionById(auctionId || "");
-  const currentBid = currentBids[auctionId || ""];
+  const currentBid = getCurrentBid(auctionId || "");
+
+  const currentBidUser = currentBid
+    ? getUserById(currentBid.userId)
+    : undefined;
 
   const minimumBid = currentBid
     ? currentBid.amount + 1
@@ -38,6 +47,7 @@ export const useBidForm = () => {
   const formik = useFormik({
     initialValues: { amount: "" },
     validationSchema: bidSchema,
+    enableReinitialize: true,
     onSubmit: async (values: BidFormValues) => {
       await handleSubmit(values);
     },
@@ -62,13 +72,16 @@ export const useBidForm = () => {
         return;
       }
 
+      // WebSocket actualiza automáticamente el BidStore
       placeBid(auctionId, bidAmount, user.id);
+
       await createBid({
         auctionId,
         amount: bidAmount,
         userId: user.id,
         timestamp: new Date().toISOString(),
       });
+
       showMessage(
         t("bid.success") || "Bid placed successfully!",
         severities.SUCCESS
@@ -85,5 +98,7 @@ export const useBidForm = () => {
     bidError,
     minimumBid,
     auction,
+    currentBid,
+    currentBidUser, // ✅ Ahora será correcto
   };
 };

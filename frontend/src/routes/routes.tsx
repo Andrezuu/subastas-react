@@ -9,6 +9,7 @@ import Home from "../pages/Home";
 import { AuctionInfo } from "../pages/auction/AuctionInfo";
 import { BidHistory } from "../pages/user/BidHistory";
 import { AdminPanel } from "../pages/admin/AdminPanel";
+import { AuctionResults } from "../pages/auction/AuctionResults";
 
 export const AppRoutes = () => {
   const { t } = useTranslation();
@@ -30,6 +31,7 @@ export const AppRoutes = () => {
           <Route path="auction/:auctionId" element={<AuctionInfo />} />
           <Route path="myBids" element={<BidHistory />} />
           <Route path="admin" element={<AdminPanel />} />
+          <Route path="results" element={<AuctionResults />} />
         </Route>
       </Routes>
       {/* </ErrorBoundary> */}

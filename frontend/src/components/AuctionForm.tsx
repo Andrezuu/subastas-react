@@ -8,6 +8,7 @@ import {
   Grid,
 } from "@mui/material";
 import { useAction } from "../hooks/useAuction";
+import { useTranslation } from "react-i18next";
 
 interface AuctionFormProps {
   open: boolean;
@@ -24,11 +25,14 @@ export const AuctionForm = ({
     editingItem,
     onSuccess: onClose,
   });
+  const { t } = useTranslation();
 
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
       <form onSubmit={formik.handleSubmit}>
-        <DialogTitle>{editingItem ? "Edit" : "Create"} Auction</DialogTitle>
+        <DialogTitle>
+          {editingItem ? t("auction.edit") : t("auction.create")}
+        </DialogTitle>
 
         <DialogContent>
           <Grid container spacing={2} sx={{ mt: 1 }}>
@@ -36,7 +40,7 @@ export const AuctionForm = ({
               <TextField
                 fullWidth
                 name="name"
-                label="Auction Name"
+                label={t("auction.formName")}
                 value={formik.values.name || ""}
                 onChange={formik.handleChange}
                 error={formik.touched.name && Boolean(formik.errors.name)}
@@ -50,7 +54,7 @@ export const AuctionForm = ({
                 multiline
                 rows={3}
                 name="description"
-                label="Description"
+                label={t("auction.formDescription")}
                 value={formik.values.description || ""}
                 onChange={formik.handleChange}
                 error={
@@ -68,7 +72,7 @@ export const AuctionForm = ({
                 fullWidth
                 type="number"
                 name="basePrice"
-                label="Base Price"
+                label={t("auction.formBasePrice")}
                 value={formik.values.basePrice || ""}
                 onChange={formik.handleChange}
                 error={
@@ -83,7 +87,7 @@ export const AuctionForm = ({
                 fullWidth
                 type="datetime-local"
                 name="startTime"
-                label="Start Time"
+                label={t("auction.formStartTime")}
                 value={formik.values.startTime || ""}
                 onChange={formik.handleChange}
                 error={
@@ -97,7 +101,7 @@ export const AuctionForm = ({
                 fullWidth
                 type="datetime-local"
                 name="endTime"
-                label="End Time"
+                label={t("auction.formEndTime")}
                 value={formik.values.endTime || ""}
                 onChange={formik.handleChange}
                 error={formik.touched.endTime && Boolean(formik.errors.endTime)}
@@ -108,9 +112,9 @@ export const AuctionForm = ({
         </DialogContent>
 
         <DialogActions>
-          <Button onClick={onClose}>Cancel</Button>
+          <Button onClick={onClose}>{t("auction.formCancel")}</Button>
           <Button type="submit" variant="contained">
-            {editingItem ? "Update" : "Create"}
+            {editingItem ? t("auction.formUpdate") : t("auction.formSubmit")}
           </Button>
         </DialogActions>
       </form>

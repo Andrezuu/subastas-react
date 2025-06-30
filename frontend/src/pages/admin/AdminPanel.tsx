@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -9,21 +8,18 @@ import {
   Tabs,
   Tab,
   Button,
-  IconButton,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
 } from "@mui/material";
-import { DataGrid, type GridColDef } from "@mui/x-data-grid";
-import {
-  Gavel,
-  People,
-  Add,
-  Edit,
-  Delete,
-  AdminPanelSettings,
-} from "@mui/icons-material";
-import { useSnackbar } from "../../contexts/SnackbarContext";
+import { Gavel, People, Add, AdminPanelSettings } from "@mui/icons-material";
 import { AuctionForm } from "../../components/AuctionForm";
 import { UserForm } from "../../components/UserForm";
 import { useAdminPanel } from "../../hooks/useAdminPanel";
+import { UserTable } from "../../components/UserTable";
+import { AuctionTable } from "../../components/AuctionTable";
+import { useState } from "react";
 
 const TabPanel = ({
   children,
@@ -62,108 +58,38 @@ export const AdminPanel = () => {
     editingUser,
   } = useAdminPanel();
 
-  // Auction Columns
-  const auctionColumns: GridColDef[] = [
-    {
-      field: "name",
-      headerName: "Auction Name",
-      width: 250,
-      renderCell: (params) => (
-        <Typography variant="body1" fontWeight="medium">
-          {params.value}
-        </Typography>
-      ),
-    },
-    {
-      field: "basePrice",
-      headerName: "Base Price",
-      width: 120,
-      renderCell: (params) => (
-        <Typography variant="body2" color="primary.main" fontWeight="bold">
-          ${params.value}
-        </Typography>
-      ),
-    },
-    {
-      field: "endTime",
-      headerName: "End Time",
-      width: 180,
-      renderCell: (params) => (
-        <Typography variant="body2">
-          {new Date(params.value).toLocaleString()}
-        </Typography>
-      ),
-    },
-    {
-      field: "actions",
-      headerName: "Actions",
-      width: 120,
-      renderCell: (params) => (
-        <Box>
-          <IconButton
-            onClick={() => handleEditAuction(params.row)}
-            size="small"
-          >
-            <Edit />
-          </IconButton>
-          <IconButton
-            onClick={() => handleDeleteAuction(params.row.id)}
-            size="small"
-            color="error"
-          >
-            <Delete />
-          </IconButton>
-        </Box>
-      ),
-    },
-  ];
+  const [deleteDialog, setDeleteDialog] = useState({
+    open: false,
+    type: "",
+    itemName: "",
+    onConfirm: () => {},
+  });
 
-  // User Columns
-  const userColumns: GridColDef[] = [
-    {
-      field: "username",
-      headerName: "Username",
-      width: 200,
-      renderCell: (params) => (
-        <Typography variant="body1" fontWeight="medium">
-          {params.value}
-        </Typography>
-      ),
-    },
-    {
-      field: "role",
-      headerName: "Role",
-      width: 120,
-      renderCell: (params) => (
-        <Typography
-          variant="body2"
-          color={params.value === "admin" ? "error.main" : "text.secondary"}
-          fontWeight={params.value === "admin" ? "bold" : "normal"}
-        >
-          {params.value}
-        </Typography>
-      ),
-    },
-    {
-      field: "actions",
-      headerName: "Actions",
-      width: 120,
-      renderCell: (params) => (
-        <Box>
-          <IconButton onClick={() => handleEditUser(params.row)} size="small">
-            <Edit />
-          </IconButton>
-          <IconButton
-            onClick={() => handleDeleteUser(params.row.id)}
-            size="small"
-            color="error"
-          >
-            <Delete />
-          </IconButton>
-        </Box>
-      ),
-    },
-  ];
+  const confirmDeleteUser = (userId: string) => {
+    const user = users.find((u) => u.id === userId);
+    setDeleteDialog({
+      open: true,
+      type: "user",
+      itemName: user?.username || "",
+      onConfirm: () => {
+        handleDeleteUser(userId);
+        setDeleteDialog((prev) => ({ ...prev, open: false }));
+      },
+    });
+  };
+
+  const confirmDeleteAuction = (auctionId: string) => {
+    const auction = auctions.find((a) => a.id === auctionId);
+    setDeleteDialog({
+      open: true,
+      type: "auction",
+      itemName: auction?.name || "",
+      onConfirm: () => {
+        handleDeleteAuction(auctionId);
+        setDeleteDialog((prev) => ({ ...prev, open: false }));
+      },
+    });
+  };
 
   return (
     <Box p={3}>
@@ -255,14 +181,9 @@ export const AdminPanel = () => {
             </Box>
 
             <Box sx={{ height: 400, width: "100%" }}>
-              <DataGrid
-                rows={auctions}
-                columns={auctionColumns}
-                pageSizeOptions={[5, 10, 25]}
-                initialState={{
-                  pagination: { paginationModel: { page: 0, pageSize: 10 } },
-                }}
-                disableRowSelectionOnClick
+              <AuctionTable
+                handleDeleteAuction={confirmDeleteAuction}
+                handleEditAuction={handleEditAuction}
               />
             </Box>
           </CardContent>
@@ -289,14 +210,9 @@ export const AdminPanel = () => {
             </Box>
 
             <Box sx={{ height: 400, width: "100%" }}>
-              <DataGrid
-                rows={users}
-                columns={userColumns}
-                pageSizeOptions={[5, 10, 25]}
-                initialState={{
-                  pagination: { paginationModel: { page: 0, pageSize: 10 } },
-                }}
-                disableRowSelectionOnClick
+              <UserTable
+                handleDeleteUser={confirmDeleteUser}
+                handleEditUser={handleEditUser}
               />
             </Box>
           </CardContent>
@@ -315,6 +231,35 @@ export const AdminPanel = () => {
         onClose={() => setOpenUserDialog(false)}
         editingItem={editingUser}
       />
+
+      <Dialog
+        open={deleteDialog.open}
+        onClose={() => setDeleteDialog((prev) => ({ ...prev, open: false }))}
+      >
+        <DialogTitle>Confirm Delete</DialogTitle>
+        <DialogContent>
+          <Typography>
+            Are you sure you want to delete {deleteDialog.type} "
+            {deleteDialog.itemName}"? This action cannot be undone.
+          </Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            onClick={() =>
+              setDeleteDialog((prev) => ({ ...prev, open: false }))
+            }
+          >
+            Cancel
+          </Button>
+          <Button
+            onClick={deleteDialog.onConfirm}
+            color="error"
+            variant="contained"
+          >
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 };

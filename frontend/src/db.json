@@ -41,11 +41,6 @@
       "username": "ffff",
       "role": "user",
       "avatar": "https://picsum.photos/200/300"
-    },
-    {
-      "id": "eeb9",
-      "username": "upb",
-      "role": "admin"
     }
   ],
   "auctions": [
@@ -56,7 +51,7 @@
       "description": "Latest ",
       "img": "https://picsum.photos/300/200?random=1",
       "startTime": "2025-06-29T10:00:00Z",
-      "endTime": "2025-06-30T18:30:00Z"
+      "endTime": "2025-06-30T11:30:00Z"
     },
     {
       "id": "2",
@@ -105,14 +100,6 @@
       "img": "https://picsum.photos/300/200?random=6",
       "startTime": "2024-06-27T10:00:00Z",
       "endTime": "2026-07-01T16:30:00Z"
-    },
-    {
-      "id": "f60a",
-      "name": "aaaa",
-      "description": "123rfrcxscfds",
-      "startTime": "2025-06-30T10:51",
-      "endTime": "2025-07-11T10:51",
-      "basePrice": 1111
     }
   ],
   "bids": [
@@ -227,6 +214,34 @@
       "amount": 350.01,
       "userId": "2",
       "timestamp": "2025-06-30T05:42:57.269Z"
+    },
+    {
+      "id": "b9af",
+      "auctionId": "3",
+      "amount": 351.02,
+      "userId": "1",
+      "timestamp": "2025-06-30T15:42:13.044Z"
+    },
+    {
+      "id": "9490",
+      "auctionId": "3",
+      "amount": 352.02,
+      "userId": "1",
+      "timestamp": "2025-06-30T15:42:18.982Z"
+    },
+    {
+      "id": "b27e",
+      "auctionId": "5",
+      "amount": 601,
+      "userId": "1",
+      "timestamp": "2025-06-30T15:43:44.575Z"
+    },
+    {
+      "id": "0c61",
+      "auctionId": "3",
+      "amount": 354.03,
+      "userId": "1",
+      "timestamp": "2025-06-30T15:51:05.192Z"
     }
   ]
 }

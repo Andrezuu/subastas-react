@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { io, Socket } from "socket.io-client";
 import type { IBid } from "../interfaces/IBid";
-import { createBid } from "../services/bidService";
+import { useBidStore } from "../store/useBidStore";
 
 interface TimerData {
   id: string;
@@ -26,9 +26,11 @@ export const useAppWebSocket = () => {
   const WEBSOCKET_URL = "http://localhost:3001";
   const [timers, setTimers] = useState<Record<string, TimerData>>({});
   const [connectionStatus, setConnectionStatus] = useState("Connecting");
-  const [currentBids, setCurrentBids] = useState<Record<string, IBid>>({});
   const [bidError, setBidError] = useState<string | null>(null);
-  const [winners, setWinners] = useState<Record<string, IBid>>({});
+
+  const setCurrentBid = useBidStore((state) => state.setCurrentBid);
+  const addBid = useBidStore((state) => state.addBid);
+  const setWinner = useBidStore((state) => state.setWinner);
 
   const socketRef = useRef<Socket<ServerToClientEvents> | null>(null);
 
@@ -64,7 +66,8 @@ export const useAppWebSocket = () => {
       socket.on("UPDATE_DATA", handleData);
 
       socket.on("BID_UPDATE", async (bid: IBid) => {
-        setCurrentBids((prev) => ({ ...prev, [bid.auctionId]: bid }));
+        setCurrentBid(bid.auctionId, bid);
+        addBid(bid.auctionId, bid);
         setBidError(null);
       });
 
@@ -73,8 +76,8 @@ export const useAppWebSocket = () => {
         setTimeout(() => setBidError(null), 3000);
       });
 
-      socket.on("AUCTION_END", (data) => {
-        setWinners((prev) => ({ ...prev, [data.productId]: data.winner }));
+      socket.on("AUCTION_END", (data: { productId: string; winner: IBid }) => {
+        setWinner(data.productId, data.winner);
       });
     }
 
@@ -100,9 +103,7 @@ export const useAppWebSocket = () => {
   return {
     timers,
     connectionStatus,
-    currentBids,
     bidError,
-    winners,
     placeBid,
   };
 };

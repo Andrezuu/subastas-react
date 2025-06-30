@@ -8,30 +8,34 @@ import {
   Chip,
   Stack,
 } from "@mui/material";
-import { useAppWebSocket } from "../hooks/useWebSocket";
-import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useBidForm } from "../hooks/useBidForm";
+import { useEffect } from "react";
 
 export const BidForm = () => {
-  const { auctionId } = useParams<{ auctionId: string }>();
   const { t } = useTranslation();
-  const { winners } = useAppWebSocket();
-  const { formik, bidError, minimumBid } = useBidForm();
 
-  const winner = winners[auctionId || ""];
 
-  if (winner) {
+  const { formik, bidError, minimumBid, currentBid, currentBidUser } = useBidForm();
+
+  useEffect(() => {
+    console.log("Current Bid User:", currentBidUser);
+    console.log("Current Bid:", currentBid);
+  }, []);
+
+  if (currentBidUser) {
     return (
       <Paper elevation={2} sx={{ p: 3, mt: 2, textAlign: "center" }}>
         <Typography variant="h5" color="success.main" gutterBottom>
           🎉 {t("bid.auctionEnded") || "Auction Ended!"}
         </Typography>
         <Typography variant="h6" gutterBottom>
-          {t("bid.winner")}: {winner.userId}
+          {t("bid.winner")}: {currentBidUser?.username || currentBidUser.id}
         </Typography>
         <Chip
-          label={`${t("bid.finalPrice") || "Final Price"}: $${winner.amount}`}
+          label={`${t("bid.finalPrice") || "Final Price"}: $${
+            currentBid.amount
+          }`}
           color="success"
         />
       </Paper>
@@ -43,6 +47,23 @@ export const BidForm = () => {
       <Typography variant="h6" gutterBottom>
         {t("bid.placeBid")}
       </Typography>
+
+      {/* ✅ Mostrar bid actual si existe */}
+      {currentBid && (
+        <Box mb={2} p={2} bgcolor="info.light" borderRadius={1}>
+          <Typography variant="subtitle2">
+            {t("bid.currentHighest") || "Current Highest Bid:"}
+          </Typography>
+          <Typography variant="h6" color="primary">
+            ${currentBid.amount}
+          </Typography>
+          {currentBidUser && (
+            <Typography variant="body2" color="text.secondary">
+              {t("bid.by") || "by"} {currentBidUser.username}
+            </Typography>
+          )}
+        </Box>
+      )}
 
       <form onSubmit={formik.handleSubmit}>
         <Stack spacing={2}>
@@ -61,7 +82,7 @@ export const BidForm = () => {
                 : `${t("bid.minimumBid")}: $${minimumBid}`
             }
             inputProps={{
-              min: minimumBid,
+              min: minimumBid + 1,
               step: "0.01",
             }}
             disabled={formik.isSubmitting}
@@ -77,12 +98,14 @@ export const BidForm = () => {
             size="large"
             disabled={formik.isSubmitting || !formik.isValid}
           >
-            {t("bid.placeBid")}
+            {formik.isSubmitting
+              ? t("bid.placing") || "Placing Bid..."
+              : t("bid.placeBid")}
           </Button>
 
           <Box textAlign="center">
             <Typography variant="caption" color="text.secondary">
-              {t("bid.realTimeInfo")}
+              {t("bid.realTimeInfo") || "Bids are updated in real-time"}
             </Typography>
           </Box>
         </Stack>

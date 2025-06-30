@@ -6,26 +6,34 @@ import { useAppWebSocket } from "../../hooks/useWebSocket";
 import { useAuctionStore } from "../../store/useAuctionStore";
 import { auctionTypes } from "../../constants/auctionTypes";
 import { useTranslation } from "react-i18next";
+import { useUserStore } from "../../store/useUserStore";
+import { useBidStore } from "../../store/useBidStore";
 
 export const AuctionInfo = () => {
   const { t } = useTranslation();
   const { auctionId } = useParams<{ auctionId: string }>();
   const getAuctionById = useAuctionStore((state) => state.getAuctionById);
-  const { timers, currentBids, winners } = useAppWebSocket();
+  const getUserById = useUserStore((state) => state.getUserById);
+
+  // ✅ Usar bid store
+  const getCurrentBid = useBidStore((state) => state.getCurrentBid);
+
+  const { timers } = useAppWebSocket();
 
   if (!auctionId) {
     return <Typography>Invalid auction ID</Typography>;
   }
 
   const auction = getAuctionById(auctionId);
-
   if (!auction) {
     return <Typography>Loading...</Typography>;
   }
 
   const timer = timers[auction.id];
-  const currentBid = currentBids[auction.id.toString()];
-  const winner = winners[auction.id.toString()];
+  const currentBid = getCurrentBid(auctionId);
+  const user = getUserById(currentBid?.userId || "");
+
+  const isAuctionEnded = timer?.type === auctionTypes.PAST;
 
   return (
     <Box sx={{ maxWidth: 800, mx: "auto", p: 2 }}>
@@ -45,7 +53,8 @@ export const AuctionInfo = () => {
             {auction.description}
           </Typography>
 
-          {timer && timer.type === auctionTypes.PRESENT && (
+          {/* ✅ Solo mostrar timer si está activa */}
+          {timer && timer.type === auctionTypes.PRESENT && !isAuctionEnded && (
             <Box mb={2}>
               <Typography variant="h6">{t("timer.title")}</Typography>
               <Timer
@@ -61,24 +70,30 @@ export const AuctionInfo = () => {
             {t("home.basePrice")}: ${auction.basePrice}
           </Typography>
 
-          {currentBid && (
+          {currentBid && !isAuctionEnded && (
             <Typography variant="h6" color="primary">
               {t("home.currentBid")}: ${currentBid.amount}
             </Typography>
           )}
 
-          {winner ? (
-            <Box mt={2}>
-              <Typography variant="h5" color="success.main">
-                Auction Ended!
+          {/* ✅ Mostrar resultado final mejorado */}
+          {isAuctionEnded ? (
+            <Box mt={2} p={2} bgcolor="success.light" borderRadius={1}>
+              <Typography variant="h5" color="success.main" gutterBottom>
+                🎉 Auction Ended!
               </Typography>
-              <Typography>
-                {t("bid.winner")}: {t("bid.user")}
-                {winner.userId}
-              </Typography>
-              <Typography>
-                {t("bid.finalPrice")}: ${winner.amount}
-              </Typography>
+              {user ? (
+                <>
+                  <Typography variant="h6">
+                    Winner: {user.username || user.id}
+                  </Typography>
+                  <Typography variant="h6" color="secondary">
+                    Final Price: ${currentBid!.amount}
+                  </Typography>
+                </>
+              ) : (
+                <Typography>No bids were placed for this auction.</Typography>
+              )}
             </Box>
           ) : (
             <Box mt={3}>

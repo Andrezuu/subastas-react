@@ -32,6 +32,17 @@ export const enJSON = {
   },
   auction: {
     createError: "Error creating auction",
+    edit: "Edit Auction",
+    create: "Create Auction",
+    formName: "Auction Name",
+    formDescription: "Description",
+    formBasePrice: "Base Price",
+    formImage: "Image URL",
+    formStartDate: "Start Date",
+    formEndDate: "End Date",
+    formSubmit: "Submit",
+    formUpdate: "Update",
+    formCancel: "Cancel",
   },
   home: {
     title: "Latest Auctions",
@@ -64,7 +75,7 @@ export const enJSON = {
     user: "User",
     finalPrice: "Final Price",
   },
-  BidHistory: {
+  bidHistory: {
     title: "Bid History",
     noBids: "No bids found",
     totalSpent: "Total Spent",
