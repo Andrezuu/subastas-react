@@ -100,6 +100,14 @@
       "img": "https://picsum.photos/300/200?random=6",
       "startTime": "2024-06-27T10:00:00Z",
       "endTime": "2026-07-01T16:30:00Z"
+    },
+    {
+      "id": "c397",
+      "name": "team4",
+      "description": "aaaaaaaaa",
+      "basePrice": 123,
+      "startTime": "2025-06-30T18:08",
+      "endTime": "2025-07-12T18:08"
     }
   ],
   "bids": [
@@ -284,6 +292,55 @@
       "amount": 2,
       "userId": "1",
       "timestamp": "2025-06-30T17:26:23.258Z"
+    },
+    {
+      "id": "38ce",
+      "auctionId": "5",
+      "amount": 602,
+      "userId": "1",
+      "timestamp": "2025-06-30T21:56:48.039Z"
+    },
+    {
+      "id": "a437",
+      "auctionId": "5",
+      "amount": 603,
+      "userId": "2",
+      "timestamp": "2025-06-30T21:57:06.138Z"
+    },
+    {
+      "id": "3990",
+      "auctionId": "5",
+      "amount": 604,
+      "userId": "1",
+      "timestamp": "2025-06-30T22:01:37.970Z"
+    },
+    {
+      "id": "bb20",
+      "auctionId": "5",
+      "amount": 604.01,
+      "userId": "2",
+      "timestamp": "2025-06-30T22:01:41.686Z"
+    },
+    {
+      "id": "f93d",
+      "auctionId": "5",
+      "amount": 605,
+      "userId": "2",
+      "timestamp": "2025-06-30T22:01:46.958Z"
+    },
+    {
+      "id": "dc72",
+      "auctionId": "5",
+      "amount": 606,
+      "userId": "1",
+      "timestamp": "2025-06-30T22:03:10.521Z"
+    },
+    {
+      "id": "0915",
+      "auctionId": "5",
+      "amount": 607,
+      "userId": "2",
+      "timestamp": "2025-06-30T22:03:19.654Z"
     }
   ]
 }

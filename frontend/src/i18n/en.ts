@@ -1,5 +1,3 @@
-import { BidHistory } from "../pages/user/BidHistory";
-
 export const enJSON = {
   snackbar: {
     noSession: "You are not logged in",
@@ -91,7 +89,7 @@ export const enJSON = {
     loginRequired: "You must be logged in to bid",
     congratulations: "Congratulations!",
     youWon: "You won this auction",
-    auctionNotFound: "Auction not found"
+    auctionNotFound: "Auction not found",
   },
   bidHistory: {
     title: "Bid History",
@@ -158,6 +156,8 @@ export const enJSON = {
     totalBids: "Total Bids",
     totalAmount: "Total Amount",
     wins: "Wins",
+    nowinner: "No winner",
+    ongoing: "Ongoing",
   },
   forms: {
     required: "This field is required",

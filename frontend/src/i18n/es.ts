@@ -167,6 +167,8 @@ export const esJSON = {
     totalBids: "Total de Ofertas",
     totalAmount: "Monto Total",
     wins: "Victorias",
+    noWinner: "No hay ganador",
+    ongoing: "En curso",
   },
   forms: {
     required: "Este campo es requerido",

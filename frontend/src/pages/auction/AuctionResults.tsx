@@ -93,7 +93,6 @@ export const AuctionResults = () => {
     ).size,
   };
 
-  // ✅ Filtrar subastas
   const filteredAuctions = auctions.filter((auction) => {
     const now = new Date().getTime();
     const endTime = new Date(auction.endTime).getTime();
@@ -110,7 +109,6 @@ export const AuctionResults = () => {
     }
   });
 
-  // ✅ Top bidders usando la misma lógica
   const topBidders = Object.entries(
     auctions.reduce((acc, auction) => {
       const bids = getBidsForAuction(auction.id.toString());
@@ -121,7 +119,6 @@ export const AuctionResults = () => {
         acc[bid.userId].totalBids++;
         acc[bid.userId].totalAmount += bid.amount;
 
-        // ✅ Usar la función getWinner
         const winner = getWinner(auction.id.toString());
         if (winner && winner.userId === bid.userId) {
           acc[bid.userId].wins++;
@@ -322,7 +319,9 @@ export const AuctionResults = () => {
                             </Box>
                           ) : (
                             <Typography variant="body2" color="text.secondary">
-                              {isCompleted ? "No winner" : "Ongoing"}
+                              {isCompleted
+                                ? t("results.noWinner")
+                                : t("results.ongoing")}
                             </Typography>
                           )}
                         </TableCell>
@@ -369,14 +368,10 @@ export const AuctionResults = () => {
               <Table>
                 <TableHead>
                   <TableRow>
-                    <TableCell>{t("results.rank") || "Rank"}</TableCell>
-                    <TableCell>{t("results.user") || "User"}</TableCell>
-                    <TableCell>
-                      {t("results.totalBids") || "Total Bids"}
-                    </TableCell>
-                    <TableCell>
-                      {t("results.totalAmount") || "Total Amount"}
-                    </TableCell>
+                    <TableCell>{t("results.rank")}</TableCell>
+                    <TableCell>{t("results.user")}</TableCell>
+                    <TableCell>{t("results.totalBids")}</TableCell>
+                    <TableCell>{t("results.totalAmount")}</TableCell>
                     <TableCell>{t("results.wins") || "Wins"}</TableCell>
                   </TableRow>
                 </TableHead>
